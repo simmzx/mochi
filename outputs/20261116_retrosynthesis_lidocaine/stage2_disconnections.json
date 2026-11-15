@@ -1,0 +1,38 @@
+{
+ "ok": true,
+ "source": "curated disconnection templates (RDKit)",
+ "smiles": "CCN(CC)CC(=O)Nc1c(C)cccc1C",
+ "n_disconnections": 3,
+ "disconnections": [
+  {
+   "name": "amide",
+   "cost": 1.0,
+   "precursors": [
+    "CCN(CC)CC(=O)O",
+    "Cc1cccc(C)c1N"
+   ],
+   "note": "acid + amine (amide coupling)",
+   "n_buyable": 1
+  },
+  {
+   "name": "n_alkylation",
+   "cost": 1.6,
+   "precursors": [
+    "CCBr",
+    "CCNCC(=O)Nc1c(C)cccc1C"
+   ],
+   "note": "amine + alkyl bromide (SN2)",
+   "n_buyable": 1
+  },
+  {
+   "name": "n_alkylation",
+   "cost": 1.6,
+   "precursors": [
+    "CCNCC",
+    "Cc1cccc(C)c1NC(=O)CBr"
+   ],
+   "note": "amine + alkyl bromide (SN2)",
+   "n_buyable": 1
+  }
+ ]
+}

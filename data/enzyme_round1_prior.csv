@@ -1,0 +1,12 @@
+position,mutation,outcome,note
+276,R,hit,round-1 hit; an aliphatic scan at this position was requested for round 2
+176,R,dead,dead in round 1
+176,W,reduced,reduced but not dead
+210,V,dead,dead zone
+210,T,dead,dead zone
+210,L,dead,dead zone
+210,A,dead,dead zone
+307,R,dead,dead
+253,V,dead,dead
+306,S,reduced,partial activity of E306 variants in round 1
+306,T,reduced,partial activity of E306 variants in round 1

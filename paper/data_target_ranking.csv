@@ -1,0 +1,11 @@
+rank,gene,composite,dim_association,dim_signaling,dim_crc_evidence,dim_pathway_centrality,dim_novelty,dim_druggability,n_supporting,supporting,weak,coverage,os_p,os_hr,n_pubmed_crc
+1,NOTCH1,0.4806,0.5075,0.676,0.3641,0.0,0.029,0.924,2,druggability|signaling,pathway_centrality|novelty,1.0,0.7771372739993666,1.027,254
+2,ASIC1,0.4784,0.4194,0.688,0.4104,0.0444,,0.716,2,druggability|signaling,pathway_centrality,0.833,0.9060163960014203,0.99,
+3,FZD7,0.4587,0.2291,0.85,0.2291,0.2348,0.3,0.84,2,druggability|signaling,association|crc_evidence|pathway_centrality|novelty,1.0,0.1659355364055379,1.127,39
+4,ZNRF3,0.4492,0.5005,0.748,0.4931,0.0,0.409,0.25,1,signaling,pathway_centrality|druggability,1.0,0.24420977398924856,0.893,25
+5,ACE2,0.4426,0.6125,0.45,0.2041,0.0222,0.026,1.0,2,association|druggability,crc_evidence|pathway_centrality|novelty,1.0,0.37281562239574273,0.915,32
+6,GJA1,0.4416,0.4523,0.688,0.1841,0.0444,0.287,0.784,2,druggability|signaling,crc_evidence|pathway_centrality|novelty,1.0,0.9699184707604787,0.996,6
+7,ALG10,0.4383,0.4884,0.45,0.4262,0.0444,0.902,0.32,1,novelty,pathway_centrality|druggability,1.0,0.9137081366028078,0.99,1
+8,ANPEP,0.4313,0.466,0.45,0.0838,0.0222,0.505,1.0,1,druggability,crc_evidence|pathway_centrality,1.0,0.1620392309293005,0.867,8
+9,MEP1A,0.3382,0.4846,0.45,0.0411,0.0222,0.779,0.272,1,novelty,crc_evidence|pathway_centrality|druggability,1.0,0.8951235185693138,0.987,4
+10,CDHR5,0.338,0.4908,0.45,0.0459,0.0222,0.788,0.25,1,novelty,crc_evidence|pathway_centrality|druggability,1.0,0.6258752603667795,0.952,5

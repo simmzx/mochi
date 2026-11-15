@@ -1,0 +1,33 @@
+\chapter{Research Questions and Objectives}\label{ch:2}
+
+The project is organised around three research questions that are answerable with the artefacts of a single run, rather than around a single predictive benchmark.
+
+\begin{itemize}
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\item RQ1 (generality). Can one orchestration layer drive four structurally different AIDD tasks - evidence integration, combinatorial design, graph search and program compilation - without task-specific agent code?
+\item RQ2 (self-evolution). Does the ability to create a tool at runtime add capability that a static tool library cannot provide, and is the created tool trustworthy?
+\item RQ3 (reliability). Does a deterministic critic audit combined with an explicit experimental prior improve the reliability of decisions compared with an unaudited, prior-free pipeline?
+\end{itemize}
+
+\section{Objectives and success criteria}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Objectives are tied to a deliverable, a measurable success criterion and a results section.}
+\begin{tabularx}{\textwidth}{l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
+\hline
+Objective & Deliverable & Success criterion & Where reported \\
+\hline
+O1  Build the orchestrator & 4 agents + stage registry + templates & one code path runs all four scenarios & §3, §4 \\
+O2  Curate the tool ocean & 46 tools, cached, provenance-logged & every claim traceable to a call & §3.3, §7 \\
+O3  Reproduce published science & hindcasts against two published results & recover the published answer or explain the miss & §4.1, §4.2 \\
+O4  Validate feasibility outputs & route + SDL benchmarks & solved routes terminate in stock; corrupted protocols are caught & §4.3, §4.4 \\
+O5  Demonstrate self-evolution & runtime tool creation & created tool passes 13/13 controls & §4.1, §4.5 \\
+\hline
+\end{tabularx}
+
+\end{table}
+
+The motivation for O3 deserves emphasis. A target-discovery system that is only judged on whether it produces 'a plausible list' is unfalsifiable. We therefore use published answers as a hindcast: the system is given exactly the information a researcher would have had before the answer was known, and we report whether, and at what rank, it recovers the known result.
+

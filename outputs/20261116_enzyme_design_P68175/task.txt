@@ -1,0 +1,6 @@
+task_source: default
+scenario: enzyme_design
+target: P68175
+disease: colorectal cancer
+
+Design a focused single-point mutant library for P68175, rank variants by predicted activity gain and stability risk, and validate the ranking against published round-2 experimental data.

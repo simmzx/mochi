@@ -1,0 +1,59 @@
+skill_id: protocol_to_sdl_compiler
+version: "1.0.0"
+name: Protocol to SDL Instruction Compiler
+domain: laboratory_automation
+description: >
+  Compile a natural-language wet-lab protocol into a validated, machine-executable
+  self-driving-laboratory (SDL) instruction program. The compiler extracts operations, normalises
+  units, emits typed opcodes, statically validates feasibility and safety (volumes, temperatures,
+  vessel capacity, timing), repairs what it can, and simulates the execution timeline.
+tags:
+  - laboratory automation
+  - self-driving lab
+  - protocol compilation
+  - SDL
+  - execution scheduling
+applicable_queries:
+  - compile the protocol into SDL instructions
+  - convert this protocol for a robotic platform
+  - make the wet-lab protocol machine executable
+workflow:
+  - step: 1
+    action: Protocol ingestion
+    description: Parse the natural-language protocol into typed steps with volumes, temperatures, durations, vessels and reagents.
+    tools_required: [parse_protocol]
+    parameters: {}
+    agent: dev
+  - step: 2
+    action: SDL program synthesis
+    description: Map each parsed step onto SDL opcodes with normalised SI units and explicit resources.
+    tools_required: [compile_sdl]
+    parameters: {}
+    agent: dev
+  - step: 3
+    action: Static validation and repair
+    description: Check volumes against vessel capacity, temperatures against device limits, missing units and ordering constraints; repair what is repairable and report the rest.
+    tools_required: [validate_sdl]
+    parameters: {max_repair_rounds: 2}
+    agent: dev
+  - step: 4
+    action: Execution simulation and benchmark
+    description: Simulate the program on a digital twin of the platform, report the timeline and resource usage, and benchmark the compiler on a protocol suite that includes deliberately corrupted inputs.
+    tools_required: [simulate_sdl]
+    parameters: {}
+    agent: dev
+tools_required:
+  - {tool_id: parse_protocol, version: ">=1.0.0", optional: false}
+  - {tool_id: compile_sdl, version: ">=1.0.0", optional: false}
+  - {tool_id: validate_sdl, version: ">=1.0.0", optional: false}
+  - {tool_id: simulate_sdl, version: ">=1.0.0", optional: false}
+quality_metrics:
+  success_count: 0
+  failure_count: 0
+  last_used: null
+  created_at: "2025-01-01 00:00:00"
+provenance:
+  created_by: prebuilt
+  changelog:
+    - {version: "1.0.0", date: "2025-01-01", changes: "Initial template: protocol-to-SDL compilation with validation."}
+status: active

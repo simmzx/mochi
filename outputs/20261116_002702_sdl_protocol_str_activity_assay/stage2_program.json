@@ -1,0 +1,89 @@
+{
+ "ok": true,
+ "source": "SDL compiler",
+ "n_opcodes": 6,
+ "steps": [
+  {
+   "index": 1,
+   "opcode": "TRANSFER",
+   "device": "liquid_handler",
+   "vessel": "vial2ml",
+   "volume_ml": 0.05,
+   "temperature_c": null,
+   "speed": null,
+   "duration_min": 2.0,
+   "source_text": "Add 50 uL of 1 mM tryptamine in phosphate buffer to a 2 mL vial.",
+   "reagent": null
+  },
+  {
+   "index": 2,
+   "opcode": "TRANSFER",
+   "device": "liquid_handler",
+   "vessel": "vial2ml",
+   "volume_ml": 0.05,
+   "temperature_c": null,
+   "speed": null,
+   "duration_min": 2.0,
+   "source_text": "Add 50 uL of 1 mM secologanin.",
+   "reagent": null
+  },
+  {
+   "index": 3,
+   "opcode": "INCUBATE",
+   "device": "incubator",
+   "vessel": "vial2ml",
+   "volume_ml": null,
+   "temperature_c": 30.0,
+   "speed": null,
+   "duration_min": 30.0,
+   "source_text": "Incubate at 30 C for 30 min.",
+   "reagent": null
+  },
+  {
+   "index": 4,
+   "opcode": "TRANSFER",
+   "device": "liquid_handler",
+   "vessel": "vial2ml",
+   "volume_ml": 0.1,
+   "temperature_c": null,
+   "speed": null,
+   "duration_min": 2.0,
+   "source_text": "Quench with 100 uL of methanol.",
+   "reagent": "methanol"
+  },
+  {
+   "index": 5,
+   "opcode": "CENTRIFUGE",
+   "device": "centrifuge",
+   "vessel": "vial2ml",
+   "volume_ml": null,
+   "temperature_c": null,
+   "speed": {
+    "value": 12000.0,
+    "unit": "g"
+   },
+   "duration_min": 10.0,
+   "source_text": "Centrifuge at 12000 g for 10 min.",
+   "reagent": null
+  },
+  {
+   "index": 6,
+   "opcode": "MEASURE",
+   "device": "plate_reader",
+   "vessel": "vial2ml",
+   "volume_ml": 0.02,
+   "temperature_c": null,
+   "speed": null,
+   "duration_min": 2.0,
+   "source_text": "Inject 20 uL into the HPLC.",
+   "reagent": null
+  }
+ ],
+ "warnings": [
+  "step 1: no duration stated, defaulted to 2.0 min",
+  "step 2: no duration stated, defaulted to 2.0 min",
+  "step 4: no duration stated, defaulted to 2.0 min",
+  "step 6: no duration stated, defaulted to 2.0 min"
+ ],
+ "total_min": 48.0
+}

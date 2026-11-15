@@ -1,0 +1,6 @@
+task_source: default
+scenario: target_discovery
+target: DPEP1
+disease: colorectal cancer
+
+Discover the unreported downstream effector target of DPEP1 in the disease: identify the signal-transducing membrane protein through which it acts, ranked by multi-dimensional evidence and supported by a wet-lab validation plan.

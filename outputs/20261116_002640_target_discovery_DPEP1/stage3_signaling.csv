@@ -1,0 +1,35 @@
+gene,ppi_score,ppi_experimental,intact_interactions,coexpr_r,coexpr_fdr,shared_pathways,pathway_jaccard,pathway_information_content,lit_cooccurrence,n_channels,prior,sources,preliminary_association,expressed_median_mrna,signaling_score,signaling_families,topology_reason
+DPEP2,0.733,0.0,0,-0.062,1.0,7,0.583,53.83,2,3,False,PPI|pathway|literature,1.0,15.64,0.128,[],"GPI-anchored ectoprotein: no transmembrane helix, no intracellular domain"
+NOTCH1,0.0,0.0,0,0.435,5.316691110546874e-26,0,0,0.0,0,1,False,coexpr,0.726,2723.53,0.676,[],1-pass transmembrane with 798 intracellular residues
+PRKCZ,0.0,0.0,0,0.432,7.231823682171039e-26,0,0,0.0,0,1,False,coexpr,0.72,693.31,0.188,[],soluble / intracellular protein
+ZNRF3,0.0,0.0,0,0.429,1.127914603146157e-25,0,0,0.0,0,1,False,coexpr,0.716,1049.18,0.748,"[""frizzled""]",1-pass transmembrane with 695 intracellular residues
+TLE2,0.0,0.0,0,0.405,1.191281066213932e-22,0,0,0.0,0,1,False,coexpr,0.676,777.15,0.138,[],soluble / intracellular protein
+XPNPEP2,0.649,0.0,0,0.184,1.0,0,0.0,0.0,0,1,False,PPI,0.649,105.6,0.13,[],"GPI-anchored ectoprotein: no transmembrane helix, no intracellular domain"
+ACE2,0.638,0.0,0,0.077,1.0,0,0.0,0.0,0,1,False,PPI,0.638,717.84,0.45,[],1-pass transmembrane with 43 intracellular residues
+APPBP2,0.6,0.0,3,-0.238,1.0,0,0.0,0.0,0,1,False,PPI,0.6,659.37,0.152,[],soluble / intracellular protein
+CHMP1A,0.415,0.0,0,0.358,1.0,0,0.0,0.0,3,2,False,PPI|literature,0.6,2854.77,0.17,[],soluble / intracellular protein
+TMEM181,0.6,0.445,3,-0.23,1.0,0,0.0,0.0,0,1,False,PPI,0.6,1650.15,0.327,[],9-pass transmembrane without a cytoplasmic domain
+AXIN2,0.0,0.0,0,0.339,8.08056759910296e-16,0,0.0,0.0,1,2,False,coexpr|literature,0.565,3653.8,0.138,[],soluble / intracellular protein
+KIFBP,0.553,0.524,0,-0.316,1.0,0,0.0,0.0,0,1,False,PPI,0.553,456.77,0.12,[],soluble / intracellular protein
+CNDP2,0.53,0.0,0,0.051,1.0,0,0.0,0.0,0,1,False,PPI,0.53,2932.82,0.108,[],soluble / intracellular protein
+DNASE1L2,0.493,0.0,0,0.264,1.0,0,0.0,0.0,0,1,False,PPI,0.493,12.27,0.12,[],soluble / intracellular protein
+STEAP2,0.474,0.462,1,-0.19,1.0,0,0.0,0.0,0,1,False,PPI,0.474,485.33,0.347,[],6-pass transmembrane without a cytoplasmic domain
+TTF2,0.457,0.0,0,-0.102,1.0,0,0.0,0.0,0,1,False,PPI,0.457,638.03,0.12,[],soluble / intracellular protein
+RNPEP,0.444,0.0,0,-0.115,1.0,0,0.0,0.0,0,1,False,PPI,0.444,2350.75,0.108,[],soluble / intracellular protein
+CDHR5,0.432,0.0,0,0.143,1.0,0,0.0,0.0,0,1,False,PPI,0.432,1759.35,0.45,[],1-pass transmembrane with 154 intracellular residues
+GJA1,0.432,0.407,1,-0.089,1.0,0,0.0,0.0,0,1,False,PPI,0.432,475.54,0.688,"[""ion_channel""]",4-pass transmembrane with 231 intracellular residues
+ASIC1,0.426,0.426,1,0.05,1.0,0,0.0,0.0,0,1,False,PPI,0.426,325.63,0.688,"[""ion_channel""]",2-pass transmembrane with 117 intracellular residues
+SMOC2,0.426,0.0,0,0.118,1.0,0,0.0,0.0,0,1,False,PPI,0.426,713.64,0.152,[],soluble / intracellular protein
+ANPEP,0.417,0.0,0,0.043,1.0,0,0.0,0.0,1,2,False,PPI|literature,0.417,522.24,0.45,[],1-pass transmembrane with a short intracellular segment (6 aa)
+CUBN,0.415,0.0,0,-0.093,1.0,0,0.0,0.0,2,2,False,PPI|literature,0.415,8.4,0.2,[],soluble / intracellular protein
+HPCAL1,0.415,0.412,0,0.218,1.0,0,0.0,0.0,0,1,False,PPI,0.415,1370.18,0.152,[],soluble / intracellular protein
+MEP1A,0.411,0.0,0,0.156,1.0,0,0.0,0.0,0,1,False,PPI,0.411,1607.96,0.45,[],1-pass transmembrane with a short intracellular segment (5 aa)
+ALG10,0.401,0.401,1,-0.171,1.0,0,0.0,0.0,0,1,False,PPI,0.401,115.38,0.45,[],12-pass transmembrane with 104 intracellular residues
+NCAPG,0.4,0.4,1,-0.155,1.0,0,0.0,0.0,0,1,False,PPI,0.4,621.66,0.108,[],soluble / intracellular protein
+ACADS,0.2,0.0,1,0.184,1.0,1,0.111,5.93,0,2,False,PPI|pathway,0.395,889.7,0.12,[],soluble / intracellular protein
+ACTG1,0.0,0.0,0,0.226,2.534528110558817e-07,1,0.083,5.41,0,1,False,pathway,0.377,84267.46,0.12,[],soluble / intracellular protein
+DVL3,0.0,0.0,0,0.219,5.812126415970714e-07,1,0.059,5.41,0,1,False,pathway,0.365,1904.61,0.156,[],soluble / intracellular protein
+CRK,0.0,0.0,0,-0.064,0.18397778231306017,1,0.034,5.41,0,1,False,pathway,0.361,756.74,0.19,[],soluble / intracellular protein
+DVL2,0.0,0.0,0,0.125,0.006830359208617564,1,0.048,5.41,0,1,False,pathway,0.361,592.17,0.2,[],soluble / intracellular protein
+FZD7,0.0,0.0,0,0.093,0.04733245660200461,1,0.077,5.41,0,1,False,pathway,0.361,356.66,0.85,"[""kinase"", ""frizzled""]",7-pass transmembrane with 80 intracellular residues
+GRB2,0.0,0.0,0,-0.112,0.016136202188440744,1,0.007,5.41,0,1,False,pathway,0.361,3103.78,0.192,[],soluble / intracellular protein

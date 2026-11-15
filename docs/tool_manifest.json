@@ -1,0 +1,653 @@
+[
+  {
+    "name": "conservation_profile",
+    "category": "annotation",
+    "description": "Position-specific conservation from homologs: align every homolog to the query with Needleman-Wunsch and report the WT frequency and Shannon entropy per position.",
+    "inputs": [
+      "query_sequence",
+      "homolog_sequences"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "query_sequence": "query protein sequence",
+      "homolog_sequences": "list of homolog sequences"
+    }
+  },
+  {
+    "name": "query_domain_architecture_panel",
+    "category": "annotation",
+    "description": "Batch domain-architecture summary for a candidate panel: Pfam families + signalling-domain flags from UniProt cross-references (no per-gene REST call beyond the batch UniProt query).",
+    "inputs": [
+      "genes"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "genes": "candidate gene symbols"
+    }
+  },
+  {
+    "name": "query_interpro",
+    "category": "annotation",
+    "description": "InterPro/Pfam domain architecture of a protein, with a compact flag set for signalling domain families (kinase, 7TM/GPCR, LRR, Frizzled, death domain, phosphatase, ...).",
+    "inputs": [
+      "gene"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "gene": "gene symbol or UniProt accession"
+    }
+  },
+  {
+    "name": "query_quickgo",
+    "category": "annotation",
+    "description": "Gene Ontology annotations of a protein (QuickGO): molecular function / biological process / cellular component, evidence codes and a derived signalling-annotation score.",
+    "inputs": [
+      "gene"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "gene": "gene symbol"
+    }
+  },
+  {
+    "name": "druggability_score",
+    "category": "chemistry",
+    "description": "Composite druggability score (0-1) from ChEMBL ligand volume, DGIdb interactions and Open Targets tractability buckets.",
+    "inputs": [
+      "gene"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "gene": "gene symbol"
+    }
+  },
+  {
+    "name": "is_buyable",
+    "category": "chemistry",
+    "description": "Check whether a molecule is in the curated building-block stock.",
+    "inputs": [
+      "smiles"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "smiles": "molecule SMILES"
+    }
+  },
+  {
+    "name": "molecule_properties",
+    "category": "chemistry",
+    "description": "Parse a SMILES string and report identity/descriptor/functional-group information used by the retrosynthesis planner.",
+    "inputs": [
+      "smiles"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "smiles": "target molecule SMILES"
+    }
+  },
+  {
+    "name": "one_step_disconnections",
+    "category": "chemistry",
+    "description": "Enumerate plausible one-step retrosynthetic disconnections of a molecule using the curated template set, returning sanitised precursor sets with template name and cost.",
+    "inputs": [
+      "smiles",
+      "max_precursors"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "smiles": "molecule SMILES",
+      "max_precursors": "discard disconnections producing more fragments than this"
+    }
+  },
+  {
+    "name": "query_chembl_target",
+    "category": "chemistry",
+    "description": "ChEMBL target lookup and ligand statistics for a gene: target id, number of bioactivities, number of distinct compounds and the best clinical phase — a direct druggability signal.",
+    "inputs": [
+      "gene"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "gene": "gene symbol"
+    }
+  },
+  {
+    "name": "query_dgidb",
+    "category": "chemistry",
+    "description": "DGIdb drug–gene interactions (approved / investigational drugs, interaction types).",
+    "inputs": [
+      "gene"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "gene": "gene symbol"
+    }
+  },
+  {
+    "name": "fetch_homologs",
+    "category": "database",
+    "description": "Retrieve homolog sequences from UniProt for conservation analysis.",
+    "inputs": [
+      "uniprot_id",
+      "query",
+      "size"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "uniprot_id": "query accession (excluded from the result)",
+      "query": "UniProt query selecting the homolog family",
+      "size": "maximum number of sequences"
+    }
+  },
+  {
+    "name": "query_cbioportal_alterations",
+    "category": "database",
+    "description": "Mutation and copy-number alteration frequency for a gene in TCGA-COADREAD (mutation count, % mutated samples, % amplified, % deep-deleted).",
+    "inputs": [
+      "gene",
+      "study"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "gene": "HGNC symbol",
+      "study": "cBioPortal study id"
+    }
+  },
+  {
+    "name": "query_cbioportal_coexpression",
+    "category": "database",
+    "description": "Co-expression of a query gene with a panel of candidates in TCGA-COADREAD: Pearson r, p-value, BH-FDR and the number of shared samples (single matrix download, cached).",
+    "inputs": [
+      "anchor_gene",
+      "genes",
+      "study"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "anchor_gene": "gene whose expression is the reference (e.g. DPEP1)",
+      "genes": "candidate gene list",
+      "study": "cBioPortal study id"
+    }
+  },
+  {
+    "name": "query_cbioportal_expression",
+    "category": "database",
+    "description": "TCGA-COADREAD expression of a gene: tumour mRNA distribution, z-score versus matched normal, fraction of tumours with z>2 (over-expression), and the number of profiled samples.",
+    "inputs": [
+      "gene",
+      "study"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "gene": "HGNC symbol",
+      "study": "cBioPortal study id"
+    }
+  },
+  {
+    "name": "query_cbioportal_expression_panel",
+    "category": "database",
+    "description": "Expression profile of many genes in TCGA-COADREAD: mean z-score vs normal, fraction of tumours with z>2 and median mRNA per gene (used for panel-level filtering).",
+    "inputs": [
+      "genes",
+      "study"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "genes": "candidate gene list",
+      "study": "cBioPortal study id"
+    }
+  },
+  {
+    "name": "query_cbioportal_survival",
+    "category": "database",
+    "description": "Kaplan–Meier analysis for a gene in TCGA-COADREAD: median mRNA split, log-rank p-value, hazard ratio and per-group median survival. Endpoint selectable (OS/DFS/DSS/PFS).",
+    "inputs": [
+      "gene",
+      "study",
+      "endpoint"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "gene": "HGNC symbol",
+      "study": "cBioPortal study id",
+      "endpoint": "OS | DFS | DSS | PFS"
+    }
+  },
+  {
+    "name": "query_opentargets_associations",
+    "category": "database",
+    "description": "Open Targets gene–disease associations: overall association profile, the score for a disease of interest (default MONDO_0005575 = colorectal cancer) and the top associated diseases.",
+    "inputs": [
+      "gene",
+      "disease_efo",
+      "top_n"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "gene": "HGNC gene symbol",
+      "disease_efo": "EFO/MONDO id of the disease",
+      "top_n": "how many top diseases to return"
+    }
+  },
+  {
+    "name": "query_opentargets_known_drugs",
+    "category": "database",
+    "description": "Known drugs / clinical candidates for a target from Open Targets (druggability proxy).",
+    "inputs": [
+      "gene"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "gene": "HGNC gene symbol"
+    }
+  },
+  {
+    "name": "query_opentargets_target",
+    "category": "database",
+    "description": "Open Targets target profile: Ensembl id, biotype, function descriptions, pathway membership, subcellular localisation, tractability buckets and safety liabilities.",
+    "inputs": [
+      "gene"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "gene": "HGNC gene symbol"
+    }
+  },
+  {
+    "name": "query_uniprot",
+    "category": "database",
+    "description": "Fetch a UniProt entry: sequence, topology (TM / GPI-anchor / signal peptide), domains, subcellular location, function and GO annotations. Use it to test whether a protein can transduce a signal itself (transmembrane + intracellular domain) or is an ectoenzyme/GPI protein.",
+    "inputs": [
+      "protein"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "protein": "HGNC symbol or UniProt accession"
+    }
+  },
+  {
+    "name": "query_uniprot_batch",
+    "category": "database",
+    "description": "Batch-fetch topology/domain summaries for many proteins at once (used by the signaling potential scorer). Returns one compact record per gene.",
+    "inputs": [
+      "genes"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "genes": "list of gene symbols"
+    }
+  },
+  {
+    "name": "resolve_gene_ids",
+    "category": "database",
+    "description": "Map HGNC symbols to Entrez / Ensembl identifiers in batch (mygene.info). Every cross-database tool needs this.",
+    "inputs": [
+      "genes"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "genes": "list of gene symbols"
+    }
+  },
+  {
+    "name": "compile_sdl",
+    "category": "laboratory",
+    "description": "Compile parsed protocol steps into an SDL program: typed opcodes with SI units, device assignment, vessel, and per-step duration.",
+    "inputs": [
+      "parsed",
+      "vessel"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "parsed": "output of parse_protocol",
+      "vessel": "default vessel type if the protocol does not state one"
+    }
+  },
+  {
+    "name": "parse_protocol",
+    "category": "laboratory",
+    "description": "Parse a natural-language wet-lab protocol into typed steps with volumes, temperatures, durations, speeds and reagents; unparsable sentences are returned explicitly.",
+    "inputs": [
+      "protocol_text"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "protocol_text": "protocol as a list of sentences (or one string)"
+    }
+  },
+  {
+    "name": "simulate_sdl",
+    "category": "laboratory",
+    "description": "Simulate an SDL program on the device model: per-step start/end times, device occupancy and consumable usage.",
+    "inputs": [
+      "program"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "program": "output of compile_sdl"
+    }
+  },
+  {
+    "name": "validate_sdl",
+    "category": "laboratory",
+    "description": "Statically validate an SDL program: vessel capacity, device temperature limits, missing units, non-positive durations, flammable-solvent hazards and basic ordering constraints.",
+    "inputs": [
+      "program"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "program": "output of compile_sdl"
+    }
+  },
+  {
+    "name": "citation_network_score",
+    "category": "literature",
+    "description": "Composite literature score for a gene: co-mention with the anchor, disease specificity (gene+disease / gene total) and novelty — the three signals the critic asks for.",
+    "inputs": [
+      "anchor",
+      "genes",
+      "disease"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "anchor": "anchor gene",
+      "genes": "candidate genes",
+      "disease": "disease term"
+    }
+  },
+  {
+    "name": "fetch_pubmed_abstracts",
+    "category": "literature",
+    "description": "Fetch abstracts for the top PubMed hits of a query (used by the critic to check whether an association is mechanistic or only correlative).",
+    "inputs": [
+      "query",
+      "retmax"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "query": "PubMed query",
+      "retmax": "number of abstracts"
+    }
+  },
+  {
+    "name": "query_pubmed",
+    "category": "literature",
+    "description": "PubMed search: returns the total hit count, the publication trend and the top records (title, journal, year, PMID, DOI). Use it for evidence retrieval and novelty assessment.",
+    "inputs": [
+      "query",
+      "retmax"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "query": "PubMed query string",
+      "retmax": "how many records to return"
+    }
+  },
+  {
+    "name": "query_pubmed_cooccurrence",
+    "category": "literature",
+    "description": "Literature co-mention analysis: for each gene, how many PubMed records co-mention it with the anchor gene (and, optionally, the disease). Returns counts + example PMIDs.",
+    "inputs": [
+      "anchor",
+      "genes",
+      "disease"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "anchor": "anchor gene symbol (e.g. DPEP1)",
+      "genes": "candidate gene list",
+      "disease": "optional disease term added to the query"
+    }
+  },
+  {
+    "name": "query_pubmed_novelty",
+    "category": "literature",
+    "description": "Novelty assessment for a candidate target: PubMed volume for gene+CRC, gene+therapy and gene+drug queries, plus a saturation score (0 = heavily studied, 1 = unexplored).",
+    "inputs": [
+      "gene",
+      "disease"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "gene": "HGNC symbol",
+      "disease": "disease context (default: colorectal cancer)"
+    }
+  },
+  {
+    "name": "build_ppi_union",
+    "category": "network",
+    "description": "Union of STRING + IntAct partners, with a combined association score (max of STRING combined and IntAct interaction-count score). This is the PPI branch of candidate generation.",
+    "inputs": [
+      "protein",
+      "limit"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "protein": "gene symbol",
+      "limit": "max partners"
+    }
+  },
+  {
+    "name": "query_intact",
+    "category": "network",
+    "description": "IntAct curated physical / binary protein interactions for a protein (MI-annotated, experiment-backed). Complements STRING for direct binding evidence.",
+    "inputs": [
+      "protein",
+      "page_size"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "protein": "gene symbol or UniProt accession",
+      "page_size": "max interactions"
+    }
+  },
+  {
+    "name": "query_string",
+    "category": "network",
+    "description": "STRING interaction partners of a protein with per-channel scores (experimental, database, text-mining, co-expression). The experimental score is the strongest association evidence.",
+    "inputs": [
+      "protein",
+      "limit",
+      "min_score"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "protein": "gene symbol or UniProt accession",
+      "limit": "max partners",
+      "min_score": "minimum combined score (0-1)"
+    }
+  },
+  {
+    "name": "pathway_coannotation",
+    "category": "pathway",
+    "description": "Shared-pathway analysis between an anchor gene and candidates (Reactome/KEGG/GO): number of shared terms, Jaccard similarity and the anchor's own terms.",
+    "inputs": [
+      "anchor",
+      "genes",
+      "library"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "anchor": "anchor gene symbol",
+      "genes": "candidate genes",
+      "library": "gene-set library"
+    }
+  },
+  {
+    "name": "query_kegg_pathways",
+    "category": "pathway",
+    "description": "KEGG pathway membership for a single gene (official KEGG REST link + list endpoints).",
+    "inputs": [
+      "gene"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "gene": "gene symbol"
+    }
+  },
+  {
+    "name": "query_pathway_enrichment",
+    "category": "pathway",
+    "description": "Hypergeometric enrichment of a gene list against a gene-set library with BH-FDR. Used to characterise the candidate pool (e.g. is it a Wnt / receptor-tyrosine-kinase module?).",
+    "inputs": [
+      "genes",
+      "library",
+      "top_n"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "genes": "gene list",
+      "library": "gene-set library",
+      "top_n": "number of enriched terms to return"
+    }
+  },
+  {
+    "name": "query_pathway_membership",
+    "category": "pathway",
+    "description": "Pathway/process membership for a gene list from a curated gene-set library (Reactome_2022, KEGG_2021_Human, GO_Biological_Process_2023); returns terms per gene and the most frequently shared terms.",
+    "inputs": [
+      "genes",
+      "library"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "genes": "gene symbols",
+      "library": "gene-set library name"
+    }
+  },
+  {
+    "name": "route_metrics",
+    "category": "retrosynthesis",
+    "description": "Summarise a route: number of steps, template usage, leaf building blocks, approximate atom economy and a 0-1 confidence score.",
+    "inputs": [
+      "route"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "route": "route tree returned by search_route"
+    }
+  },
+  {
+    "name": "search_route",
+    "category": "retrosynthesis",
+    "description": "Best-first recursive retrosynthesis search from a target to the curated building-block stock, returning the best route tree with per-step templates and total cost.",
+    "inputs": [
+      "smiles",
+      "max_depth",
+      "max_nodes"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "smiles": "target molecule SMILES",
+      "max_depth": "maximum number of retrosynthetic steps",
+      "max_nodes": "search budget (expanded nodes)"
+    }
+  },
+  {
+    "name": "multi_evidence_scoring",
+    "category": "scoring",
+    "description": "Rank candidate effector targets on six evidence dimensions (association, signalling competence, disease expression/prognosis, pathway centrality, novelty, druggability) with critic-calibrated weights, coverage-aware renormalisation and a consistency check.",
+    "inputs": [
+      "candidates",
+      "weights"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "candidates": "list of evidence dicts, each with a 'gene' key",
+      "weights": "optional dimension weights (must sum to 1)"
+    }
+  },
+  {
+    "name": "score_signaling_potential",
+    "category": "scoring",
+    "description": "Score proteins for intrinsic signalling competence (0-1) from UniProt topology, Pfam domain family, function annotation and localisation. GPI-anchored and secreted proteins are capped.",
+    "inputs": [
+      "genes"
+    ],
+    "origin": "created",
+    "meta": {
+      "genes": "gene symbols to score",
+      "file": "D:\\deepseek\\workshop\\mochi\\tools_created\\score_signaling_potential.py"
+    }
+  },
+  {
+    "name": "design_primers_from_cds",
+    "category": "sequence",
+    "description": "Map a protein position onto a coding sequence (by translated-frame matching) and design the corresponding QuikChange primer pair with GC content and T_m.",
+    "inputs": [
+      "cds",
+      "protein_sequence",
+      "positions",
+      "mutations",
+      "flank"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "cds": "coding DNA sequence",
+      "protein_sequence": "protein sequence the positions refer to",
+      "positions": "list of protein positions (1-based)",
+      "mutations": "list of 'wt>mut' strings, parallel to positions",
+      "flank": "flanking nucleotides on each side of the codon"
+    }
+  },
+  {
+    "name": "design_quikchange_primers",
+    "category": "sequence",
+    "description": "Design a QuikChange site-directed mutagenesis primer pair for a codon change, with GC content and T_m, using the coding sequence and the target position.",
+    "inputs": [
+      "sequence",
+      "position",
+      "wt",
+      "mut",
+      "flank"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "sequence": "coding nucleotide sequence",
+      "position": "1-based residue position to mutate",
+      "wt": "wild-type amino-acid letter",
+      "mut": "mutant amino-acid letter",
+      "flank": "number of flanking nucleotides on each side"
+    }
+  },
+  {
+    "name": "fetch_nucleotide_sequence",
+    "category": "sequence",
+    "description": "Download a CDS/mRNA sequence from ENA by accession (e.g. the EMBL id cross-referenced by UniProt).",
+    "inputs": [
+      "accession"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "accession": "ENA/EMBL accession"
+    }
+  },
+  {
+    "name": "fetch_alphafold_model",
+    "category": "structure",
+    "description": "Download and parse the AlphaFold DB model for a UniProt accession: per-residue CA coordinates, contact numbers (burial), and pLDDT confidence.",
+    "inputs": [
+      "uniprot_id"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "uniprot_id": "UniProt accession, e.g. P68175"
+    }
+  },
+  {
+    "name": "pocket_geometry",
+    "category": "structure",
+    "description": "Heavy-atom geometry of positions relative to the annotated active/binding-site cluster: minimum side-chain-to-site distance (A), burial (CA contact number) and pLDDT. This is the structure signal used by the enzyme-engineering scorer.",
+    "inputs": [
+      "uniprot_id",
+      "positions",
+      "site_positions"
+    ],
+    "origin": "predefined",
+    "meta": {
+      "uniprot_id": "UniProt accession",
+      "positions": "residue numbers to analyse",
+      "site_positions": "annotated active/binding-site residue numbers"
+    }
+  }
+]

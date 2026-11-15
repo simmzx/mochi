@@ -1,0 +1,12 @@
+name,steps,opcodes,issues,expected,caught,valid_after_compile
+str_activity_assay,6,6,,,,True
+suzuki_coupling,7,7,,,,True
+amide_coupling,6,6,,,,True
+reductive_amination,6,6,,,,True
+recrystallisation,5,5,,,,True
+hplc_sample_prep,5,5,,,,True
+overflow_variant,4,4,vessel_overflow,vessel_overflow,True,False
+overheat_variant,3,3,temperature_limit,temperature_limit,True,False
+flammable_variant,3,3,flammable_hazard,flammable_hazard,True,False
+missing_volume_variant,4,4,missing_volume,missing_volume,True,True
+zero_duration_variant,3,3,non_positive_duration,non_positive_duration,True,False

@@ -1,0 +1,554 @@
+{
+ "target": "DPEP1",
+ "disease": "colorectal cancer",
+ "disease_id": "MONDO_0005575",
+ "uniprot": {
+  "ok": true,
+  "source": "UniProt REST (uniprotkb/search)",
+  "accession": "P16444",
+  "entry_name": null,
+  "gene": "DPEP1",
+  "protein_name": "",
+  "organism": "Homo sapiens",
+  "length": 411,
+  "sequence": "MWSGWWLWPLVAVCTADFFRDEAERIMRDSPVIDGHNDLPWQLLDMFNNRLQDERANLTTLAGTHTNIPKLRAGFVGGQFWSVYTPCDTQNKDAVRRTLEQMDVVHRMCRMYPETFLYVTSSAGIRQAFREGKVASLIGVEGGHSIDSSLGVLRALYQLGMRYLTLTHSCNTPWADNWLVDTGDSEPQSQGLSPFGQRVVKELNRLGVLIDLAHVSVATMKATLQLSRAPVIFSHSSAYSVCASRRNVPDDVLRLVKQTDSLVMVNFYNNYISCTNKANLSQVADHLDHIKEVAGARAVGFGGDFDGVPRVPEGLEDVSKYPDLIAELLRRNWTEAEVKGALADNLLRVFEAVEQASNLTQAPEEEPIPLDQLGGSCRTHYGYSSGASSLHRHWGLLLASLAPLVLCLSLL",
+  "architecture": "GPI-anchored ectoprotein (no transmembrane helix, no intracellular domain)",
+  "topology": {
+   "n_transmembrane": 0,
+   "transmembrane_segments": [],
+   "gpi_anchored": true,
+   "signal_peptide": false,
+   "intracellular_residues": 0,
+   "topological_domains": []
+  },
+  "signaling_competent_by_topology": false,
+  "functional_sites": [],
+  "domains": [],
+  "pfam": [
+   "Peptidase_M19"
+  ],
+  "interpro": [],
+  "subcellular_location": [
+   "Apical cell membrane",
+   "Cell projection, microvillus membrane"
+  ],
+  "function": "Hydrolyzes a wide range of dipeptides including the conversion of leukotriene D4 to leukotriene E4 (PubMed:2303490, PubMed:31442408, PubMed:32325220, PubMed:6334084). Hydrolyzes cystinyl-bis-glycine (cys-bis-gly) formed during glutathione degradation (PubMed:32325220). Also possesses beta lactamase activity and can hydrolyze the beta-lactam antibiotic imipenem (PubMed:32325220, PubMed:6334084) Independently of its dipeptidase activity, acts as an adhesion receptor for neutrophil recruitment from bloodstream into inflamed lungs and liver",
+  "tissue_specificity": "",
+  "go_terms": [],
+  "embl_accessions": [
+   "D13137",
+   "J05257",
+   "D13138",
+   "S70330",
+   "S70329"
+  ]
+ },
+ "opentargets_target": {
+  "ok": true,
+  "source": "Open Targets Platform GraphQL v4",
+  "id": "ENSG00000015413",
+  "symbol": "DPEP1",
+  "biotype": "protein_coding",
+  "function": "Hydrolyzes a wide range of dipeptides including the conversion of leukotriene D4 to leukotriene E4 (PubMed:2303490, PubMed:31442408, PubMed:32325220, PubMed:6334084). Hydrolyzes cystinyl- bis-glycine (cys-bis-gly) formed during glutathione degradation (PubMed:32325220). Also possesses beta lactamase activity and can hydrolyze the beta-lactam antibiotic imipenem (PubMed:32325220, PubMed:6334084). {ECO:0000250|UniProtKB:P31428, ECO:0000269|PubMed:2303490, ECO:0000269|PubMed:31442408, ECO:0000269|PubMed:32325220, ECO:0000269|PubMed:6334084}.",
+  "subcellular_locations": [
+   {
+    "location": "Apical cell membrane ; Lipid-anchor, GPI-anchor",
+    "source": "uniprot"
+   },
+   {
+    "location": "Cell projection, microvillus membrane ; Lipid-anchor, GPI-anchor",
+    "source": "uniprot"
+   },
+   {
+    "location": "Cell Junctions",
+    "source": "HPA_main"
+   },
+   {
+    "location": "Nucleoplasm",
+    "source": "HPA_main"
+   }
+  ],
+  "pathways": [
+   {
+    "id": "R-HSA-5423646",
+    "name": "Aflatoxin activation and detoxification"
+   },
+   {
+    "id": "R-HSA-2142691",
+    "name": "Synthesis of Leukotrienes (LT) and Eoxins (EX)"
+   },
+   {
+    "id": "R-HSA-9664535",
+    "name": "LTC4-CYSLTR mediated IL4 production"
+   }
+  ],
+  "tractability": [
+   {
+    "label": "Approved Drug",
+    "modality": "SM",
+    "value": true
+   },
+   {
+    "label": "Advanced Clinical",
+    "modality": "SM",
+    "value": false
+   },
+   {
+    "label": "Phase 1 Clinical",
+    "modality": "SM",
+    "value": false
+   },
+   {
+    "label": "Structure with Ligand",
+    "modality": "SM",
+    "value": true
+   },
+   {
+    "label": "High-Quality Ligand",
+    "modality": "SM",
+    "value": false
+   },
+   {
+    "label": "High-Quality Pocket",
+    "modality": "SM",
+    "value": false
+   },
+   {
+    "label": "Med-Quality Pocket",
+    "modality": "SM",
+    "value": false
+   },
+   {
+    "label": "Druggable Family",
+    "modality": "SM",
+    "value": true
+   },
+   {
+    "label": "Approved Drug",
+    "modality": "AB",
+    "value": false
+   },
+   {
+    "label": "Advanced Clinical",
+    "modality": "AB",
+    "value": false
+   },
+   {
+    "label": "Phase 1 Clinical",
+    "modality": "AB",
+    "value": false
+   },
+   {
+    "label": "UniProt loc high conf",
+    "modality": "AB",
+    "value": true
+   },
+   {
+    "label": "GO CC high conf",
+    "modality": "AB",
+    "value": true
+   },
+   {
+    "label": "UniProt loc med conf",
+    "modality": "AB",
+    "value": false
+   },
+   {
+    "label": "UniProt SigP or TMHMM",
+    "modality": "AB",
+    "value": true
+   },
+   {
+    "label": "GO CC med conf",
+    "modality": "AB",
+    "value": false
+   },
+   {
+    "label": "Human Protein Atlas loc",
+    "modality": "AB",
+    "value": false
+   },
+   {
+    "label": "Approved Drug",
+    "modality": "PR",
+    "value": false
+   },
+   {
+    "label": "Advanced Clinical",
+    "modality": "PR",
+    "value": false
+   },
+   {
+    "label": "Phase 1 Clinical",
+    "modality": "PR",
+    "value": false
+   },
+   {
+    "label": "Literature",
+    "modality": "PR",
+    "value": false
+   },
+   {
+    "label": "UniProt Ubiquitination",
+    "modality": "PR",
+    "value": false
+   },
+   {
+    "label": "Database Ubiquitination",
+    "modality": "PR",
+    "value": true
+   },
+   {
+    "label": "Half-life Data",
+    "modality": "PR",
+    "value": false
+   },
+   {
+    "label": "Small Molecule Binder",
+    "modality": "PR",
+    "value": true
+   },
+   {
+    "label": "Approved Drug",
+    "modality": "OC",
+    "value": false
+   },
+   {
+    "label": "Advanced Clinical",
+    "modality": "OC",
+    "value": false
+   },
+   {
+    "label": "Phase 1 Clinical",
+    "modality": "OC",
+    "value": false
+   }
+  ],
+  "safety": []
+ },
+ "opentargets_associations": {
+  "ok": true,
+  "source": "Open Targets Platform GraphQL v4",
+  "gene": "DPEP1",
+  "ensembl_id": "ENSG00000015413",
+  "n_associated_diseases": 213,
+  "disease_efo": "MONDO_0005575",
+  "disease_name": "colorectal cancer",
+  "disease_score": 0.05336355661626689,
+  "top_diseases": [
+   {
+    "id": "EFO_0000544",
+    "name": "infection",
+    "score": 0.5773746327749836
+   },
+   {
+    "id": "MONDO_0100338",
+    "name": "urinary tract infection",
+    "score": 0.5676983200561131
+   },
+   {
+    "id": "HP_0100806",
+    "name": "Sepsis",
+    "score": 0.5673066991488891
+   },
+   {
+    "id": "MONDO_0005249",
+    "name": "pneumonia",
+    "score": 0.5646199137819453
+   },
+   {
+    "id": "MONDO_0005025",
+    "name": "endocarditis",
+    "score": 0.5587297348479079
+   },
+   {
+    "id": "MONDO_0005178",
+    "name": "osteoarthritis",
+    "score": 0.4972955683422407
+   },
+   {
+    "id": "MONDO_0021678",
+    "name": "gram-negative bacterial infections",
+    "score": 0.37937372083384635
+   },
+   {
+    "id": "MONDO_0005300",
+    "name": "chronic kidney disease",
+    "score": 0.3780686103399497
+   },
+   {
+    "id": "MONDO_0005113",
+    "name": "bacterial infectious disease",
+    "score": 0.37013422446672883
+   },
+   {
+    "id": "MONDO_0002898",
+    "name": "skin cancer",
+    "score": 0.36279152490295113
+   }
+  ]
+ },
+ "expression": {
+  "ok": true,
+  "source": "cBioPortal coadread_tcga_pan_can_atlas_2018 (RNA-seq v2 RSEM; z vs normal)",
+  "gene": "DPEP1",
+  "n_samples": 592,
+  "mrna_median": 2951.04,
+  "mrna_mean": 4795.78,
+  "mrna_iqr": [
+   965.86,
+   6430.44
+  ],
+  "n_z": 592,
+  "mean_z_vs_normal": 2.535,
+  "frac_z_gt2": 0.762,
+  "n_overexpressed": 451
+ },
+ "alterations": {
+  "ok": true,
+  "source": "cBioPortal coadread_tcga_pan_can_atlas_2018 (mutations + GISTIC CNA)",
+  "gene": "DPEP1",
+  "n_mutated_samples": 5,
+  "n_mutation_events": 5,
+  "n_cna_samples": 592,
+  "frac_amplified": 0.0,
+  "frac_deep_deleted": 0.0068,
+  "mutation_classes": {
+   "Missense_Mutation": 2,
+   "Translation_Start_Site": 1,
+   "In_Frame_Del": 1,
+   "Frame_Shift_Ins": 1
+  }
+ },
+ "pubmed": {
+  "ok": true,
+  "source": "NCBI PubMed E-utilities",
+  "query": "\"DPEP1\" AND (\"colorectal cancer\" OR CRC OR \"colon cancer\")",
+  "count": 32,
+  "retrieved": 5,
+  "records": [
+   {
+    "pmid": "40279966",
+    "title": "Bioactive components of Jiedu Sangen decoction against colorectal cancer: A novel and comprehensive research strategy for natural drug development.",
+    "journal": "Phytomedicine",
+    "year": "2025",
+    "authors": [
+     "Zheng X",
+     "Shi C",
+     "Xie Y"
+    ],
+    "doi": "10.1016/j.phymed.2025.156795",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/40279966/"
+   },
+   {
+    "pmid": "38065082",
+    "title": "Molecular cartography uncovers evolutionary and microenvironmental dynamics in sporadic colorectal tumors.",
+    "journal": "Cell",
+    "year": "2023",
+    "authors": [
+     "Heiser CN",
+     "Simmons AJ",
+     "Revetta F"
+    ],
+    "doi": "10.1016/j.cell.2023.11.006",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38065082/"
+   },
+   {
+    "pmid": "35670012",
+    "title": "DPEP1 promotes drug resistance in colon cancer cells by forming a positive feedback loop with ASCL2.",
+    "journal": "Cancer Med",
+    "year": "2023",
+    "authors": [
+     "Zeng C",
+     "Qi G",
+     "Shen Y"
+    ],
+    "doi": "10.1002/cam4.4926",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/35670012/"
+   },
+   {
+    "pmid": "32896379",
+    "title": "DPEP1 promotes the proliferation of colon cancer cells via the DPEP1/MYC feedback loop regulation.",
+    "journal": "Biochem Biophys Res Commun",
+    "year": "2020",
+    "authors": [
+     "Liu Q",
+     "Deng J",
+     "Yang C"
+    ],
+    "doi": "10.1016/j.bbrc.2020.08.063",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/32896379/"
+   },
+   {
+    "pmid": "23839495",
+    "title": "Dipeptidase 1 (DPEP1) is a marker for the transition from low-grade to high-grade intraepithelial neoplasia and an adverse prognostic factor in colorectal cancer.",
+    "journal": "Br J Cancer",
+    "year": "2013",
+    "authors": [
+     "Eisenach PA",
+     "Soeth E",
+     "Röder C"
+    ],
+    "doi": "10.1038/bjc.2013.363",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/23839495/"
+   }
+  ],
+  "recent_years": {
+   "2025": 1,
+   "2023": 2,
+   "2020": 1,
+   "2013": 1
+  }
+ },
+ "kegg": {
+  "ok": true,
+  "source": "KEGG REST",
+  "gene": "DPEP1",
+  "entrez": 1800,
+  "pathways": []
+ },
+ "go": {
+  "ok": true,
+  "source": "QuickGO annotation service (EBI)",
+  "gene": "DPEP1",
+  "uniprot": "P16444",
+  "n_annotations": 49,
+  "by_aspect": {
+   "molecular_function": 18,
+   "biological_process": 17,
+   "cellular_component": 14
+  },
+  "signalling_terms": [],
+  "signalling_go_score": 0.0,
+  "examples": [
+   {
+    "go": "GO:0005515",
+    "aspect": "molecular_function",
+    "evidence": "IPI"
+   },
+   {
+    "go": "GO:0005515",
+    "aspect": "molecular_function",
+    "evidence": "IPI"
+   },
+   {
+    "go": "GO:0005515",
+    "aspect": "molecular_function",
+    "evidence": "IPI"
+   },
+   {
+    "go": "GO:0005515",
+    "aspect": "molecular_function",
+    "evidence": "IPI"
+   },
+   {
+    "go": "GO:0008235",
+    "aspect": "molecular_function",
+    "evidence": "TAS"
+   },
+   {
+    "go": "GO:0008270",
+    "aspect": "molecular_function",
+    "evidence": "IDA"
+   },
+   {
+    "go": "GO:0008270",
+    "aspect": "molecular_function",
+    "evidence": "IDA"
+   },
+   {
+    "go": "GO:0008800",
+    "aspect": "molecular_function",
+    "evidence": "IEA"
+   },
+   {
+    "go": "GO:0008800",
+    "aspect": "molecular_function",
+    "evidence": "IDA"
+   },
+   {
+    "go": "GO:0008800",
+    "aspect": "molecular_function",
+    "evidence": "IDA"
+   },
+   {
+    "go": "GO:0016805",
+    "aspect": "molecular_function",
+    "evidence": "IBA"
+   },
+   {
+    "go": "GO:0016805",
+    "aspect": "molecular_function",
+    "evidence": "IEA"
+   },
+   {
+    "go": "GO:0016805",
+    "aspect": "molecular_function",
+    "evidence": "IDA"
+   },
+   {
+    "go": "GO:0034235",
+    "aspect": "molecular_function",
+    "evidence": "ISS"
+   },
+   {
+    "go": "GO:0070573",
+    "aspect": "molecular_function",
+    "evidence": "IEA"
+   }
+  ]
+ },
+ "interpro": {
+  "ok": true,
+  "source": "InterPro REST (EBI)",
+  "gene": "DPEP1",
+  "uniprot": "P16444",
+  "n_domains": 1,
+  "domains": [
+   {
+    "accession": "PF01244",
+    "name": "Membrane dipeptidase (Peptidase family M19)",
+    "type": "domain",
+    "description": "None",
+    "locations": [
+     [
+      21,
+      363
+     ]
+    ]
+   }
+  ],
+  "signalling_domain_flags": {
+   "kinase": false,
+   "seven_tm_gpcr": false,
+   "frizzled": false,
+   "ldl_receptor": false,
+   "lrr": false,
+   "death_domain": false,
+   "phosphatase": false,
+   "immunoglobulin": false,
+   "egf": false,
+   "tnfr": false,
+   "cytokine_receptor": false,
+   "ion_channel": false,
+   "gpi_anchor_enzyme": true
+  },
+  "signalling_families": [],
+  "signalling_domain_count": 0
+ },
+ "topology": {
+  "gpi_anchored": true,
+  "n_transmembrane": 0,
+  "intracellular_residues": 0,
+  "signaling_competent": false,
+  "architecture": "GPI-anchored ectoprotein (no transmembrane helix, no intracellular domain)"
+ },
+ "effector_constraint": "DPEP1 is GPI-anchored with no transmembrane helix and no intracellular domain (0 intracellular residues). It cannot transduce a signal itself, so the effector target must be a membrane protein with an intracellular signalling output that physically or functionally couples to it.",
+ "findings": [
+  "DPEP1 = P16444, 411 aa; GPI-anchored ectoprotein (no transmembrane helix, no intracellular domain).",
+  "Open Targets CRC association score = 0.053 (colorectal cancer); 213 associated diseases.",
+  "TCGA-COADREAD: mean mRNA z vs normal = 2.535, 451 tumours with z>2 (n=592).",
+  "Alterations: 5 mutated samples, 0.0 amplified, 0.0068 deep-deleted.",
+  "PubMed hits for DPEP1+disease: 32."
+ ]
+}

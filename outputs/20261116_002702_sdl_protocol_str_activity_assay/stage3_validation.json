@@ -1,0 +1,19 @@
+{
+ "initial": {
+  "ok": true,
+  "source": "SDL static validator",
+  "n_issues": 0,
+  "n_errors": 0,
+  "issues": [],
+  "valid": true
+ },
+ "final": {
+  "ok": true,
+  "source": "SDL static validator",
+  "n_issues": 0,
+  "n_errors": 0,
+  "issues": [],
+  "valid": true
+ },
+ "repair_rounds": 0
+}

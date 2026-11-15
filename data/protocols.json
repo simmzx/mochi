@@ -1,0 +1,133 @@
+{
+  "protocols": [
+    {
+      "name": "str_activity_assay",
+      "title": "Strictosidine synthase activity assay",
+      "expected_errors": [],
+      "text": [
+        "Add 50 uL of 1 mM tryptamine in phosphate buffer to a 2 mL vial.",
+        "Add 50 uL of 1 mM secologanin.",
+        "Incubate at 30 C for 30 min.",
+        "Quench with 100 uL of methanol.",
+        "Centrifuge at 12000 g for 10 min.",
+        "Inject 20 uL into the HPLC."
+      ]
+    },
+    {
+      "name": "suzuki_coupling",
+      "title": "Suzuki cross-coupling",
+      "expected_errors": [],
+      "text": [
+        "Add 1 mL of toluene to a 50 mL flask.",
+        "Add 2 mL of aryl bromide solution.",
+        "Add 2 mL of boronic acid solution.",
+        "Heat to 80 C for 120 min.",
+        "Cool to 25 C for 10 min.",
+        "Filter through celite.",
+        "Wash with 5 mL of ethyl acetate."
+      ]
+    },
+    {
+      "name": "amide_coupling",
+      "title": "HATU amide coupling",
+      "expected_errors": [],
+      "text": [
+        "Add 2 mL of DMF to a 50 mL flask.",
+        "Add 3 mL of amine solution.",
+        "Add 3 mL of acid solution.",
+        "Stir at 25 C for 60 min.",
+        "Quench with 10 mL of water.",
+        "Centrifuge at 5000 g for 5 min."
+      ]
+    },
+    {
+      "name": "reductive_amination",
+      "title": "Reductive amination",
+      "expected_errors": [],
+      "text": [
+        "Add 1 mL of aldehyde solution to a 15 mL tube.",
+        "Add 1 mL of amine solution.",
+        "Stir at 25 C for 30 min.",
+        "Add 0.5 mL of sodium cyanoborohydride.",
+        "Incubate at 25 C for 120 min.",
+        "Inject 10 uL into the LC-MS."
+      ]
+    },
+    {
+      "name": "recrystallisation",
+      "title": "Recrystallisation from ethanol",
+      "expected_errors": [],
+      "text": [
+        "Add 20 mL of ethanol to a 50 mL flask.",
+        "Heat to 70 C for 15 min.",
+        "Cool to 4 C for 60 min.",
+        "Filter the crystals.",
+        "Wash with 5 mL of cold ethanol."
+      ]
+    },
+    {
+      "name": "hplc_sample_prep",
+      "title": "Plasma protein precipitation for HPLC",
+      "expected_errors": [],
+      "text": [
+        "Add 100 uL of plasma to a 2 mL vial.",
+        "Add 300 uL of acetonitrile.",
+        "Vortex for 1 min.",
+        "Centrifuge at 14000 g for 10 min.",
+        "Inject 5 uL into the HPLC."
+      ]
+    },
+    {
+      "name": "overflow_variant",
+      "title": "STR assay with an oversized aliquot",
+      "expected_errors": ["vessel_overflow"],
+      "text": [
+        "Add 5 mL of tryptamine solution to a 2 mL vial.",
+        "Add 50 uL of secologanin.",
+        "Incubate at 30 C for 30 min.",
+        "Inject 20 uL into the HPLC."
+      ]
+    },
+    {
+      "name": "overheat_variant",
+      "title": "Coupling at an impossible block temperature",
+      "expected_errors": ["temperature_limit"],
+      "text": [
+        "Add 1 mL of DMF to a 15 mL tube.",
+        "Heat to 300 C for 30 min.",
+        "Filter the mixture."
+      ]
+    },
+    {
+      "name": "flammable_variant",
+      "title": "Diethyl ether heated above its flash point",
+      "expected_errors": ["flammable_hazard"],
+      "text": [
+        "Add 5 mL of diethyl ether to a 50 mL flask.",
+        "Heat to 60 C for 20 min.",
+        "Filter the mixture."
+      ]
+    },
+    {
+      "name": "missing_volume_variant",
+      "title": "Quench without a stated volume",
+      "expected_errors": ["missing_volume"],
+      "text": [
+        "Add 100 uL of substrate to a 2 mL vial.",
+        "Incubate at 30 C for 30 min.",
+        "Quench with methanol.",
+        "Centrifuge at 12000 g for 10 min."
+      ]
+    },
+    {
+      "name": "zero_duration_variant",
+      "title": "Incubation with a zero duration",
+      "expected_errors": ["non_positive_duration"],
+      "text": [
+        "Add 100 uL of substrate to a 2 mL vial.",
+        "Incubate at 30 C for 0 min.",
+        "Inject 20 uL into the HPLC."
+      ]
+    }
+  ]
+}

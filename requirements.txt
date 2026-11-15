@@ -1,0 +1,12 @@
+# MOCHI runtime dependencies (intentionally minimal)
+requests>=2.28
+PyYAML>=6.0
+matplotlib>=3.7        # figures are skipped if missing
+rdkit>=2023.9          # retrosynthesis scenario (disconnection templates)
+
+# Optional: run the agent loop against a real model instead of the offline engine
+# (any OpenAI-compatible endpoint: DeepSeek, OpenRouter, vLLM, Ollama, ...)
+# openai>=1.0          # not required - the client is a 60-line requests wrapper
+
+# Optional: tests
+# pytest>=7.0

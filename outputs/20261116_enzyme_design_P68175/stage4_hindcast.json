@@ -1,0 +1,48 @@
+{
+ "checks": [
+  {
+   "mutation": "M276L",
+   "experiment": "hit",
+   "fold_vs_wt": 2.1,
+   "global_rank": 1,
+   "in_library": true,
+   "position_in_library": true
+  },
+  {
+   "mutation": "V176F",
+   "experiment": "hit",
+   "fold_vs_wt": 1.5,
+   "global_rank": 2004,
+   "in_library": false,
+   "position_in_library": false
+  },
+  {
+   "mutation": "E306S",
+   "experiment": "reduced",
+   "fold_vs_wt": 0.25,
+   "global_rank": 79,
+   "in_library": false,
+   "position_in_library": true
+  },
+  {
+   "mutation": "E306T",
+   "experiment": "reduced",
+   "fold_vs_wt": 0.36,
+   "global_rank": 83,
+   "in_library": false,
+   "position_in_library": true
+  },
+  {
+   "mutation": "G210S",
+   "experiment": "dead",
+   "fold_vs_wt": 0.0,
+   "global_rank": 1596,
+   "in_library": false,
+   "position_in_library": false
+  }
+ ],
+ "position_recall": 0.5,
+ "variant_recall": 0.5,
+ "dead_excluded": 1.0,
+ "library_size": 15
+}

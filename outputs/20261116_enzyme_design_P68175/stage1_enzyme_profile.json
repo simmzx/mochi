@@ -1,0 +1,46 @@
+{
+ "uniprot": "P68175",
+ "organism": "Rauvolfia serpentina",
+ "sequence": "MAKLSDSQTMALFTVFLLFLSSSLALSSPILKEILIEAPSYAPNSFTFDSTNKGFYTSVQDGRVIKYEGPNSGFVDFAYASPYWNKAFCENSTDAEKRPLCGRTYDISYNLQNNQLYIVDCYYHLSVVGSEGGHATQLATSVDGVPFKWLYAVTVDQRTGIVYFTDVSTLYDDRGVQQIMDTSDKTGRLIKYDPSTKETTLLLKELHVPGGAEVSADSSFVLVAEFLSHQIVKYWLEGPKKGTAEVLVKIPNPGNIKRNADGHFWVSSSEELDGNMHGRVDPKGIKFDEFGNILEVIPLPPPFAGEHFEQIQEHDGLLYIGTLFHGSVGILVYDKKGNSFVSSH",
+ "embl_accessions": [
+  "Y00756",
+  "X62334"
+ ],
+ "length": 344,
+ "sites": [
+  151,
+  277,
+  307,
+  308,
+  309
+ ],
+ "plddt": 91.9,
+ "n_homologs": 39,
+ "site_geometry": {
+  "151": {
+   "min_heavy_dist": 0.0,
+   "contacts": 16,
+   "plddt": 98.94
+  },
+  "277": {
+   "min_heavy_dist": 0.0,
+   "contacts": 4,
+   "plddt": 95.5
+  },
+  "307": {
+   "min_heavy_dist": 0.0,
+   "contacts": 10,
+   "plddt": 98.5
+  },
+  "308": {
+   "min_heavy_dist": 0.0,
+   "contacts": 15,
+   "plddt": 98.75
+  },
+  "309": {
+   "min_heavy_dist": 0.0,
+   "contacts": 13,
+   "plddt": 98.81
+  }
+ }
+}

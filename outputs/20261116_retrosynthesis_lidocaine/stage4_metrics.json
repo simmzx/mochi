@@ -1,0 +1,19 @@
+{
+ "ok": true,
+ "steps": 2,
+ "templates": [
+  "amide",
+  "n_alkylation"
+ ],
+ "unique_templates": [
+  "amide",
+  "n_alkylation"
+ ],
+ "leaves": [
+  "CCNCC",
+  "O=C(O)CBr",
+  "Cc1cccc(C)c1N"
+ ],
+ "confidence": 0.66,
+ "cost": 3.05
+}

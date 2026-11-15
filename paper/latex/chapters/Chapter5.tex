@@ -1,0 +1,14 @@
+\chapter{Conclusions}\label{ch:5}
+
+This project asked whether a multi-agent system can make AIDD decisions that are not only plausible but reproducible and auditable, and whether one orchestrator can serve several fundamentally different tasks. Both answers are affirmative within the scope tested.
+
+\begin{itemize}
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\item Generality (RQ1): the same manager/developer/critic/tool-creation loop drove target discovery, enzyme design, retrosynthesis and protocol compilation by swapping only four stage programs and a template per scenario; no agent code was duplicated.
+\item Self-evolution (RQ2): the target scenario created its own signalling-competence scorer at runtime, the tool passed 13/13 controls and entered the ocean, and the ablation showed that without it the pipeline cannot enforce the effector constraint and produces no ranking.
+\item Reliability (RQ3): a deterministic critic audit, an explicit experimental prior and a full provenance log made every claim checkable; the prior ablation moved the true best enzyme variant from rank 1 to rank 4, and the audit never allowed a failed control to be waived.
+\item Scientific recovery: the system independently prioritised a coherent Wnt/Notch receptor set for DPEP1 - the class that contains the experimentally validated LRP6 - ranked the published best stric\-to\-si\-dine-synthase variant first, planned syntheses for 6 of 8 benchmark drugs, and caught all five injected protocol faults.
+\end{itemize}
+
+The most useful negative result is the LRP6 hindcast: a target can be biologically compelling and still unsupported by the available cohort. A system that reported otherwise would be less useful, not more. MOCHI's contribution is therefore less a new predictor than a discipline: it makes the evidence behind a decision explicit, makes the failure modes visible, and makes the next experiment obvious.
+

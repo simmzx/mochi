@@ -1,0 +1,21 @@
+* text=auto eol=lf
+
+*.py    text eol=lf
+*.md    text eol=lf
+*.tex   text eol=lf
+*.yaml  text eol=lf
+*.yml   text eol=lf
+*.toml  text eol=lf
+*.bib   text eol=lf
+*.json  text eol=lf
+*.csv   text eol=lf
+
+*.png   binary
+*.pdf   binary
+*.docx  binary
+*.pptx  binary
+
+# keep the generated deliverables out of diffs
+paper/*.pdf    -diff
+paper/*.docx   -diff
+paper/*.pptx   -diff

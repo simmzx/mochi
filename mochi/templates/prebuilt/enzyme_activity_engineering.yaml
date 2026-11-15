@@ -1,0 +1,72 @@
+skill_id: enzyme_activity_engineering
+version: "1.0.0"
+name: Enzyme Activity Engineering
+domain: protein_engineering
+description: >
+  Design a focused round-2 single-point mutant library for an enzyme given its structure, its
+  annotated catalytic machinery and any published round-1 scanning data. Variants are scored by
+  structural leverage (distance to the catalytic cluster, burial), substitution chemistry
+  (BLOSUM62, packing), a homolog-derived conservation penalty and an experimental prior, then a
+  budgeted library is selected and hindcast against published round-2 measurements.
+tags:
+  - enzyme engineering
+  - directed evolution
+  - mutation library
+  - protein design
+  - thermostability
+applicable_queries:
+  - design a mutant library for the enzyme *
+  - improve the activity of *
+  - propose single-point mutations for *
+workflow:
+  - step: 1
+    action: Protein profile
+    description: >
+      Retrieve the sequence, annotated active/binding-site residues and an AlphaFold model;
+      assess model confidence and collect homologs for conservation analysis.
+    tools_required: [query_uniprot, fetch_alphafold_model, fetch_homologs, pocket_geometry]
+    parameters: {max_homologs: 40}
+    agent: dev
+  - step: 2
+    action: Variant library construction
+    description: >
+      Enumerate every single substitution at positions within a radius of the catalytic cluster,
+      annotate each variant with its structural geometry and with the round-1 experimental
+      outcome for that position, and drop chemically risky substitutions.
+    tools_required: [pocket_geometry]
+    parameters: {pocket_radius_a: 12}
+    agent: dev
+  - step: 3
+    action: Variant scoring
+    description: >
+      Score each variant with a transparent model: leverage x (chemistry + experimental prior) x
+      packing, minus a conservation penalty derived from a homolog alignment.
+    tools_required: [conservation_profile]
+    parameters: {conservation_weight: 0.15}
+    agent: dev
+  - step: 4
+    action: Library design and hindcast
+    description: >
+      Select a budgeted library (<=2 substitutions per position, dead zones excluded), design
+      QuikChange primers, and hindcast the selection against published round-2 experiments at both
+      variant and position level.
+    tools_required: [design_quikchange_primers]
+    parameters: {library_budget: 15, max_per_position: 2}
+    agent: dev
+tools_required:
+  - {tool_id: query_uniprot, version: ">=1.0.0", optional: false}
+  - {tool_id: fetch_alphafold_model, version: ">=1.0.0", optional: false}
+  - {tool_id: fetch_homologs, version: ">=1.0.0", optional: false}
+  - {tool_id: pocket_geometry, version: ">=1.0.0", optional: false}
+  - {tool_id: conservation_profile, version: ">=1.0.0", optional: false}
+  - {tool_id: design_quikchange_primers, version: ">=1.0.0", optional: false}
+quality_metrics:
+  success_count: 0
+  failure_count: 0
+  last_used: null
+  created_at: "2025-01-01 00:00:00"
+provenance:
+  created_by: prebuilt
+  changelog:
+    - {version: "1.0.0", date: "2025-01-01", changes: "Initial template: structure+prior guided enzyme library design."}
+status: active

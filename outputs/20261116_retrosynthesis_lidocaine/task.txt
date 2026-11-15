@@ -1,0 +1,6 @@
+task_source: default
+scenario: retrosynthesis
+target: CCN(CC)CC(=O)Nc1c(C)cccc1C
+disease: colorectal cancer
+
+Plan a shortest, chemically plausible multi-step synthesis of CCN(CC)CC(=O)Nc1c(C)cccc1C from commercially available building blocks and report the route with per-step confidence.

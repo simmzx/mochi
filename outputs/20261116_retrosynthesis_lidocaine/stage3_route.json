@@ -1,0 +1,63 @@
+{
+ "ok": true,
+ "source": "template-based best-first retrosynthesis",
+ "smiles": "CCN(CC)CC(=O)Nc1c(C)cccc1C",
+ "solved": true,
+ "route": {
+  "smiles": "CCN(CC)CC(=O)Nc1c(C)cccc1C",
+  "buyable": false,
+  "template": "amide",
+  "note": "acid + amine (amide coupling)",
+  "steps": 2,
+  "cost": 3.05,
+  "children": [
+   {
+    "smiles": "CCN(CC)CC(=O)O",
+    "buyable": false,
+    "template": "n_alkylation",
+    "note": "amine + alkyl bromide (SN2)",
+    "steps": 1,
+    "cost": 1.75,
+    "children": [
+     {
+      "smiles": "CCNCC",
+      "buyable": true,
+      "steps": 0,
+      "route": []
+     },
+     {
+      "smiles": "O=C(O)CBr",
+      "buyable": true,
+      "steps": 0,
+      "route": []
+     }
+    ],
+    "precursors": [
+     "CCNCC",
+     "O=C(O)CBr"
+    ]
+   },
+   {
+    "smiles": "Cc1cccc(C)c1N",
+    "buyable": true,
+    "steps": 0,
+    "route": []
+   }
+  ],
+  "precursors": [
+   "CCN(CC)CC(=O)O",
+   "Cc1cccc(C)c1N"
+  ]
+ },
+ "n_leaves": 3,
+ "leaves": [
+  "CCNCC",
+  "Cc1cccc(C)c1N",
+  "O=C(O)CBr"
+ ],
+ "search": {
+  "nodes": 14,
+  "expanded": 13,
+  "exhausted": 0
+ }
+}

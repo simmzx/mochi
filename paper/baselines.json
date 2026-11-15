@@ -1,0 +1,62 @@
+{
+ "target": {
+  "n": 10,
+  "full_top5": [
+   "ASIC1",
+   "NOTCH1",
+   "FZD7",
+   "ZNRF3",
+   "ACE2"
+  ],
+  "assoc_top5": [
+   "ACE2",
+   "NOTCH1",
+   "ZNRF3",
+   "CDHR5",
+   "ALG10"
+  ],
+  "competence_top5": [
+   "FZD7",
+   "ZNRF3",
+   "GJA1",
+   "ASIC1",
+   "NOTCH1"
+  ],
+  "overlap_full_assoc": 3,
+  "overlap_full_comp": 4,
+  "assoc_only_gpi": null
+ },
+ "enzyme": {
+  "n": 2773,
+  "full_top15_hits": 1,
+  "chem_top15_hits": 0,
+  "lev_top15_hits": 0,
+  "prior_top15_hits": 1,
+  "m276l_full": 1,
+  "m276l_chem": 74,
+  "m276l_lev": 64,
+  "m276l_prior": 10,
+  "v176f_full": 2005
+ },
+ "retro": {
+  "one_step_solved": 4,
+  "n": 8,
+  "per_target": {
+   "aspirin": true,
+   "paracetamol": true,
+   "benzocaine": true,
+   "lidocaine": false,
+   "phenacetin": false,
+   "benorilate": false,
+   "sulfanilamide": false,
+   "vanillin": true
+  },
+  "search_solved": 8
+ },
+ "sdl": {
+  "accepted_without_validation": 11,
+  "n_protocols": 11,
+  "clean": 6,
+  "corrupt": 5
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "with_prior": {
+  "top5": null,
+  "library_size": 15,
+  "m276l_in_library": true,
+  "dead_zone_variants": [],
+  "position_recall": 0.5,
+  "variant_recall": 0.5,
+  "dead_excluded": 1.0,
+  "m276l_rank": 1
+ },
+ "no_prior": {
+  "top5": null,
+  "library_size": 15,
+  "m276l_in_library": true,
+  "dead_zone_variants": [],
+  "position_recall": 0.5,
+  "variant_recall": 0.5,
+  "dead_excluded": 1.0,
+  "m276l_rank": 4
+ }
+}

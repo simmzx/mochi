@@ -1,0 +1,6 @@
+task_source: default
+scenario: sdl_protocol
+target: str_activity_assay
+disease: colorectal cancer
+
+Compile a natural-language wet-lab protocol into a validated, machine-executable self-driving-laboratory instruction program, catch unsafe or infeasible steps, and simulate the execution timeline.

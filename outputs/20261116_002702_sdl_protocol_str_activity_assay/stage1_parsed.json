@@ -1,0 +1,118 @@
+{
+ "ok": true,
+ "source": "rule-based protocol parser",
+ "n_steps": 6,
+ "steps": [
+  {
+   "step": 1,
+   "verb": "transfer",
+   "text": "Add 50 uL of 1 mM tryptamine in phosphate buffer to a 2 mL vial.",
+   "volumes": [
+    {
+     "value": 50.0,
+     "unit": "uL",
+     "ml": 0.05
+    }
+   ],
+   "temperatures_c": [],
+   "times": [],
+   "speeds": [],
+   "vessel": "vial2ml",
+   "reagent": null
+  },
+  {
+   "step": 2,
+   "verb": "transfer",
+   "text": "Add 50 uL of 1 mM secologanin.",
+   "volumes": [
+    {
+     "value": 50.0,
+     "unit": "uL",
+     "ml": 0.05
+    }
+   ],
+   "temperatures_c": [],
+   "times": [],
+   "speeds": [],
+   "vessel": null,
+   "reagent": null
+  },
+  {
+   "step": 3,
+   "verb": "incubate",
+   "text": "Incubate at 30 C for 30 min.",
+   "volumes": [],
+   "temperatures_c": [
+    30.0
+   ],
+   "times": [
+    {
+     "value": 30.0,
+     "unit": "min",
+     "minutes": 30.0
+    }
+   ],
+   "speeds": [],
+   "vessel": null,
+   "reagent": null
+  },
+  {
+   "step": 4,
+   "verb": "transfer",
+   "text": "Quench with 100 uL of methanol.",
+   "volumes": [
+    {
+     "value": 100.0,
+     "unit": "uL",
+     "ml": 0.1
+    }
+   ],
+   "temperatures_c": [],
+   "times": [],
+   "speeds": [],
+   "vessel": null,
+   "reagent": "methanol"
+  },
+  {
+   "step": 5,
+   "verb": "centrifuge",
+   "text": "Centrifuge at 12000 g for 10 min.",
+   "volumes": [],
+   "temperatures_c": [],
+   "times": [
+    {
+     "value": 10.0,
+     "unit": "min",
+     "minutes": 10.0
+    }
+   ],
+   "speeds": [
+    {
+     "value": 12000.0,
+     "unit": "g"
+    }
+   ],
+   "vessel": null,
+   "reagent": null
+  },
+  {
+   "step": 6,
+   "verb": "measure",
+   "text": "Inject 20 uL into the HPLC.",
+   "volumes": [
+    {
+     "value": 20.0,
+     "unit": "uL",
+     "ml": 0.02
+    }
+   ],
+   "temperatures_c": [],
+   "times": [],
+   "speeds": [],
+   "vessel": null,
+   "reagent": null
+  }
+ ],
+ "unparsed": [],
+ "coverage": 1.0
+}

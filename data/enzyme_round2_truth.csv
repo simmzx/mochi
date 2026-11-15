@@ -1,0 +1,6 @@
+mutation,position,aa_from,aa_to,hplc_area_vs_wt,outcome,note
+M276L,276,M,L,2.1,hit,best round-2 hit (+2.1x WT)
+V176F,176,V,F,1.5,hit,compact aromatic at V176; +1.5x WT
+E306S,306,E,S,0.25,reduced,-75% vs WT
+E306T,306,E,T,0.36,reduced,-64% vs WT
+G210S,210,G,S,0.0,dead,confirms the G210 dead zone

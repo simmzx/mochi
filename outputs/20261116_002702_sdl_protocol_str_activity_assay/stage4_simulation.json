@@ -1,0 +1,64 @@
+{
+ "ok": true,
+ "source": "SDL digital twin",
+ "total_min": 48.0,
+ "n_steps": 6,
+ "timeline": [
+  {
+   "step": 1,
+   "opcode": "TRANSFER",
+   "device": "liquid_handler",
+   "start_min": 0.0,
+   "end_min": 2.0,
+   "duration_min": 2.0
+  },
+  {
+   "step": 2,
+   "opcode": "TRANSFER",
+   "device": "liquid_handler",
+   "start_min": 2.0,
+   "end_min": 4.0,
+   "duration_min": 2.0
+  },
+  {
+   "step": 3,
+   "opcode": "INCUBATE",
+   "device": "incubator",
+   "start_min": 4.0,
+   "end_min": 34.0,
+   "duration_min": 30.0
+  },
+  {
+   "step": 4,
+   "opcode": "TRANSFER",
+   "device": "liquid_handler",
+   "start_min": 34.0,
+   "end_min": 36.0,
+   "duration_min": 2.0
+  },
+  {
+   "step": 5,
+   "opcode": "CENTRIFUGE",
+   "device": "centrifuge",
+   "start_min": 36.0,
+   "end_min": 46.0,
+   "duration_min": 10.0
+  },
+  {
+   "step": 6,
+   "opcode": "MEASURE",
+   "device": "plate_reader",
+   "start_min": 46.0,
+   "end_min": 48.0,
+   "duration_min": 2.0
+  }
+ ],
+ "device_utilisation_min": {
+  "liquid_handler": 6.0,
+  "incubator": 30.0,
+  "centrifuge": 10.0,
+  "plate_reader": 2.0
+ },
+ "liquid_consumed_ml": 0.2,
+ "bottleneck_device": "incubator"
+}

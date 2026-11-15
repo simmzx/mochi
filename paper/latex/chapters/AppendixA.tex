@@ -1,0 +1,41 @@
+\chapter{Reproducibility and Artefact Map}
+
+\section{One-command reproduction}
+
+python cases/run\_all.py -{}-engine mock      \# four scenarios, local OpenAI-compatible endpoint
+
+python cases/run\_all.py -{}-engine offline   \# deterministic engine, no network model
+
+python cases/run\_all.py -{}-engine openai    \# real endpoint via MOCHI\_API\_KEY
+
+python tests/run\_checks.py                 \# 8 offline self-checks
+
+\section{Artefacts produced by every run}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Run artefacts; every number in this report is reproducible from these files.}
+\begin{tabularx}{\textwidth}{l>{\raggedright\arraybackslash}X}
+\hline
+File & Content \\
+\hline
+report.md & full narrative report with tables, figures and limitations \\
+run\_summary.json & machine-readable summary: engine, stages, verdicts, weights, top-15 \\
+transcript.jsonl & every agent turn (role, kind, content) \\
+llm\_calls.jsonl & every model call, including the exact user message sent \\
+provenance.jsonl & every HTTP call: URL, parameters, status, latency, payload hash, cache hit \\
+stage*.json / *.csv & intermediate tables (candidate pool, scores, routes, SDL program) \\
+figure\_errors.txt & only if a figure failed to render (otherwise absent) \\
+\hline
+\end{tabularx}
+
+\end{table}
+
+\section{Repository layout}
+
+mochi/ (package: core, agents, scenarios, tools, prompts, templates) $\cdot$ cases/ (one runner per scenario) $\cdot$ data/ (round-1/round-2 enzyme data, protocol corpus) $\cdot$ tests/ (self-checks and the mock model server) $\cdot$ paper/ (this report and its figures) $\cdot$ outputs/ (run directories).
+
+\section{Code availability}
+
+The complete source code, the data files and the run artefacts that reproduce every table and figure in this report are available at \href{https://github.com/simmzx/mochi}{\texttt{github.com/simmzx/mochi}}. The repository contains the package, the four scenario runners, the offline test-suite and the mock model server; no credentials are required to reproduce the offline results.

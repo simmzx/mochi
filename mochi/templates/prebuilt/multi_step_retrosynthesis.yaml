@@ -1,0 +1,58 @@
+skill_id: multi_step_retrosynthesis
+version: "1.0.0"
+name: Multi-Step Retrosynthesis Planning
+domain: synthesis_planning
+description: >
+  Plan a shortest plausible synthesis route for a target molecule by template-based recursive
+  disconnection, terminating in commercially available building blocks. Routes are scored per step
+  (template reliability, precursor simplicity, protecting-group burden) and reported with the
+  full tree, step count and confidence.
+tags:
+  - retrosynthesis
+  - synthesis planning
+  - route design
+  - chemoinformatics
+applicable_queries:
+  - plan a synthesis of *
+  - find a route to *
+  - retrosynthesis for *
+workflow:
+  - step: 1
+    action: Target analysis
+    description: Parse the target molecule, compute descriptors and identify the functional groups that determine the disconnection strategy.
+    tools_required: [molecule_properties]
+    parameters: {}
+    agent: dev
+  - step: 2
+    action: One-step disconnection enumeration
+    description: Apply the curated reaction-template library to the target and score each one-step disconnection.
+    tools_required: [one_step_disconnections]
+    parameters: {max_precursors: 4}
+    agent: dev
+  - step: 3
+    action: Multi-step search
+    description: Best-first AND-OR search over disconnections until every leaf is a commercially available building block or the depth limit is reached.
+    tools_required: [search_route]
+    parameters: {max_depth: 6, max_nodes: 400}
+    agent: dev
+  - step: 4
+    action: Route ranking and benchmark
+    description: Rank the routes, report per-step confidence and benchmark the planner on a set of drugs with known literature routes.
+    tools_required: [route_metrics]
+    parameters: {}
+    agent: dev
+tools_required:
+  - {tool_id: molecule_properties, version: ">=1.0.0", optional: false}
+  - {tool_id: one_step_disconnections, version: ">=1.0.0", optional: false}
+  - {tool_id: search_route, version: ">=1.0.0", optional: false}
+  - {tool_id: route_metrics, version: ">=1.0.0", optional: false}
+quality_metrics:
+  success_count: 0
+  failure_count: 0
+  last_used: null
+  created_at: "2025-01-01 00:00:00"
+provenance:
+  created_by: prebuilt
+  changelog:
+    - {version: "1.0.0", date: "2025-01-01", changes: "Initial template: template-based recursive retrosynthesis."}
+status: active

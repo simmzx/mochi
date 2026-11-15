@@ -1,0 +1,23 @@
+{
+ "ok": true,
+ "source": "RDKit descriptors",
+ "smiles": "CCN(CC)CC(=O)Nc1c(C)cccc1C",
+ "canonical": "CCN(CC)CC(=O)Nc1c(C)cccc1C",
+ "formula": "C14H22N2O",
+ "mw": 234.34,
+ "clogp": 2.58,
+ "hbd": 1,
+ "hba": 2,
+ "rings": 1,
+ "heavy_atoms": 17,
+ "functional_groups": {
+  "carboxylic_acid": 0,
+  "amide": 1,
+  "ester": 0,
+  "aryl_ether": 0,
+  "sulfonamide": 0,
+  "nitro": 0,
+  "primary_amine": 0
+ },
+ "buyable": false
+}

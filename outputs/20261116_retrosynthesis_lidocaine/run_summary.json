@@ -1,0 +1,134 @@
+{
+ "run_id": "retro_final",
+ "engine": "offline",
+ "scenario": "retrosynthesis",
+ "elapsed_s": 2.2,
+ "template": "multi_step_retrosynthesis",
+ "task": "Plan a shortest, chemically plausible multi-step synthesis of CCN(CC)CC(=O)Nc1c(C)cccc1C from commercially available building blocks and report the route with per-step confidence.",
+ "task_source": "default",
+ "stages": [
+  {
+   "stage": "stage_1",
+   "name": "Target analysis",
+   "status": "ok",
+   "attempt": 1,
+   "duration_s": 0.0,
+   "findings": [
+    "Target CCN(CC)CC(=O)Nc1c(C)cccc1C (C14H22N2O, MW 234.34, cLogP 2.58).",
+    "Reactive handles available for disconnection: amide.",
+    "Heavy atoms 17, rings 1."
+   ]
+  },
+  {
+   "stage": "stage_2",
+   "name": "One-step disconnection enumeration",
+   "status": "ok",
+   "attempt": 1,
+   "duration_s": 0.0,
+   "findings": [
+    "3 one-step disconnections enumerated.",
+    "Template usage: {'amide': 1, 'n_alkylation': 2}.",
+    "0 disconnections are fully buyable in one step."
+   ]
+  },
+  {
+   "stage": "stage_3",
+   "name": "Multi-step search",
+   "status": "ok",
+   "attempt": 1,
+   "duration_s": 0.0,
+   "findings": [
+    "Search solved the target within depth 6.",
+    "Nodes expanded: 13; leaves: 3.",
+    "Route cost 3.05"
+   ]
+  },
+  {
+   "stage": "stage_4",
+   "name": "Route ranking and benchmark",
+   "status": "ok",
+   "attempt": 1,
+   "duration_s": 0.1,
+   "findings": [
+    "Best route: 2 step(s), templates ['amide', 'n_alkylation'], confidence 0.66.",
+    "Benchmark: solved 8/8 drugs; mean planned steps 1.62 vs literature 1.75."
+   ]
+  }
+ ],
+ "critiques": [
+  {
+   "stage": "stage_1",
+   "verdict": "accept",
+   "failed_checks": []
+  },
+  {
+   "stage": "stage_2",
+   "verdict": "accept",
+   "failed_checks": [
+    "At least one disconnection is fully buyable"
+   ]
+  },
+  {
+   "stage": "stage_3",
+   "verdict": "accept",
+   "failed_checks": []
+  },
+  {
+   "stage": "stage_4",
+   "verdict": "accept",
+   "failed_checks": []
+  }
+ ],
+ "weights": {},
+ "ranking": [],
+ "tool_creation": null,
+ "files": {
+  "report": "D:\\deepseek\\workshop\\mochi\\outputs\\retro_final\\report.md",
+  "summary": null,
+  "figures": [
+   "fig1_route_lengths.png"
+  ],
+  "run_dir": "D:\\deepseek\\workshop\\mochi\\outputs\\retro_final"
+ },
+ "narrative": "",
+ "memory": {
+  "templates": {
+   "n_templates": 4,
+   "prebuilt": 4,
+   "auto_generated": 0,
+   "ids": [
+    "downstream_effector_target_discovery",
+    "enzyme_activity_engineering",
+    "multi_step_retrosynthesis",
+    "protocol_to_sdl_compiler"
+   ]
+  },
+  "session_turns": 13,
+  "blackboard_keys": [
+   "plan",
+   "stage_1.critique",
+   "stage_1.result",
+   "stage_2.critique",
+   "stage_2.result",
+   "stage_3.critique",
+   "stage_3.result",
+   "stage_4.critique",
+   "stage_4.result"
+  ],
+  "performance": {
+   "n_tasks": 8,
+   "by_agent": {
+    "dev_agent": {
+     "n": 4,
+     "success_rate": 1.0,
+     "avg_s": 0.0
+    },
+    "critic_agent": {
+     "n": 4,
+     "success_rate": 1.0,
+     "avg_s": 0.0
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,117 @@
+skill_id: downstream_effector_target_discovery
+version: "1.0.0"
+name: Downstream Effector Target Discovery
+domain: oncology_target_discovery
+description: >
+  Given a disease-associated anchor gene that cannot transduce a signal itself (for example a
+  GPI-anchored ectoenzyme), discover the membrane receptor through which it acts, by (1) building a
+  functional profile of the anchor, (2) generating candidates from physical interaction,
+  co-expression, shared pathways and literature, (3) scoring every candidate on six orthogonal
+  evidence dimensions (association, signalling competence, disease expression, pathway centrality,
+  novelty, druggability) and (4) integrating the evidence with dynamically calibrated weights into
+  a validated, druggable effector target.
+tags:
+  - target discovery
+  - effector target
+  - colorectal cancer
+  - GPI-anchored
+  - signaling receptor
+  - multi-evidence scoring
+applicable_queries:
+  - discover the downstream effector target of *
+  - find the receptor through which * acts
+  - identify an unreported effector target in *
+  - multi-agent target discovery for *
+workflow:
+  - step: 1
+    action: Profile construction
+    description: >
+      Build a comprehensive functional profile of the anchor gene: sequence and topology
+      (transmembrane segments, GPI anchor, signal peptide), domain architecture, subcellular
+      localisation, pathway membership, disease association, tumour expression, alterations and
+      literature. Explicitly decide whether the anchor can transduce a signal by itself; if it
+      cannot, record the topological constraint the effector must satisfy.
+    tools_required: [query_uniprot, query_opentargets_target, query_opentargets_associations,
+                     query_cbioportal_expression, query_cbioportal_alterations, query_pubmed,
+                     query_kegg_pathways]
+    parameters: {min_evidence_types: 4}
+    agent: dev
+  - step: 2
+    action: Candidate generation
+    description: >
+      Generate candidate effectors from four independent sources: physical interaction
+      (STRING + IntAct), expression co-variation in the disease cohort, shared pathway membership,
+      and literature co-mention. Expand the co-expression branch with a signalling-receptor panel
+      so that receptors absent from PPI databases are not missed. Merge into a candidate table.
+    tools_required: [build_ppi_union, query_cbioportal_coexpression, pathway_coannotation,
+                     query_pubmed_cooccurrence]
+    parameters: {min_ppi_score: 0.4, min_abs_r: 0.30, min_shared_pathways: 1}
+    agent: dev
+  - step: 3
+    action: Signalling competence scoring
+    description: >
+      Score every candidate for its ability to transduce a signal, integrating UniProt topology
+      (transmembrane segments, intracellular domain length), Pfam/InterPro domain families, GO
+      signalling annotations and pathway context. Validate the scorer against known signalling
+      receptors (positive controls) and GPI-anchored / secreted proteins (negative controls) before
+      it is trusted.
+    tools_required: [run_signaling_potential_scorer]
+    parameters: {min_score: 0.35}
+    agent: dev
+  - step: 4
+    action: Multi-evidence scoring
+    description: >
+      Score each candidate on six dimensions: association strength with the anchor, CRC
+      expression/prognosis, pathway centrality, signalling competence, novelty and druggability.
+      Robust-normalise each dimension, then combine with weights calibrated by the critic.
+    tools_required: [multi_evidence_scoring, query_cbioportal_survival, druggability_score,
+                     query_pubmed_novelty]
+    parameters: {dimensions: 6}
+    agent: dev
+  - step: 5
+    action: Critic review and dynamic weight calibration
+    description: >
+      The critic checks evidence sufficiency, directionality and statistical validity of the
+      ranking, flags candidates whose dimensions disagree, and re-calibrates the dimension
+      weights. If a capability gap appears, a tool request is emitted and the affected stage is
+      re-run with the evolved Tool Ocean.
+    tools_required: []
+    parameters: {max_rounds: 3}
+    agent: critic
+  - step: 6
+    action: Integration and reporting
+    description: >
+      Consolidate the prioritised target list, write the evidence dossier for the top target
+      (mechanism, pathway, expression, prognosis, druggability, novelty), state contradictions,
+      and produce the wet-lab validation plan (IP, knockdown/overexpression, qPCR, Western blot).
+    tools_required: [generate_report]
+    parameters: {top_n: 10}
+    agent: manager
+tools_required:
+  - {tool_id: query_uniprot, version: ">=1.0.0", optional: false}
+  - {tool_id: query_opentargets_associations, version: ">=1.0.0", optional: false}
+  - {tool_id: query_cbioportal_expression, version: ">=1.0.0", optional: false}
+  - {tool_id: query_cbioportal_survival, version: ">=1.0.0", optional: true}
+  - {tool_id: build_ppi_union, version: ">=1.0.0", optional: false}
+  - {tool_id: query_cbioportal_coexpression, version: ">=1.0.0", optional: false}
+  - {tool_id: pathway_coannotation, version: ">=1.0.0", optional: false}
+  - {tool_id: query_pubmed_cooccurrence, version: ">=1.0.0", optional: false}
+  - {tool_id: run_signaling_potential_scorer, version: ">=1.0.0", optional: false}
+  - {tool_id: multi_evidence_scoring, version: ">=1.0.0", optional: false}
+  - {tool_id: druggability_score, version: ">=1.0.0", optional: true}
+quality_metrics:
+  success_count: 0
+  failure_count: 0
+  avg_completion_time_sec: null
+  avg_critic_score: null
+  last_used: null
+  created_at: "2025-01-01 00:00:00"
+provenance:
+  created_by: prebuilt
+  source_run_id: null
+  parent_skill_id: null
+  changelog:
+    - version: "1.0.0"
+      date: "2025-01-01"
+      changes: "Initial template: GPI-anchor -> downstream effector receptor discovery."
+status: active

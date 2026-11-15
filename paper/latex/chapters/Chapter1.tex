@@ -1,0 +1,45 @@
+\chapter{Introduction}\label{ch:1}
+
+\section{The data-to-decision bottleneck in AIDD}
+
+Drug discovery has been transformed by data: a modern programme can query a protein's structure, its expression across thousands of tumours, its interaction partners, its chemical ligands and its literature within minutes. What has not scaled is the translation of those data into a defensible decision. A target is worth pursuing only if it is linked to the disease, mechanically plausible, druggable and still novel; a mutation is worth synthesising only if it is close enough to the active site to matter yet conservative enough to fold; a route is worth running only if every leaf is purchasable; a protocol is worth automating only if every volume and temperature is physically feasible. Each of these judgements requires the same three ingredients - heterogeneous evidence, explicit domain constraints and a written rationale - and each is currently assembled by hand.
+
+Large language models (LLMs) are attractive precisely here, because they can plan, call tools and write the rationale \cite{r01,r02}. Yet a single model with a bag of tools is a poor fit for regulated scientific reasoning: it may hallucinate a number, silently skip a control, or change its answer between runs. The engineering question of this project is therefore not 'can an LLM call a database?' but 'can a multi-agent system make scientific decisions that are reproducible, auditable and correctable?'
+
+\section{Agentic systems for biomedical research}
+
+Tool-augmented LLMs were formalised by ReAct, which interleaves reasoning traces with actions \cite{r01}, and by Toolformer, which learns when to call APIs \cite{r02}. Chemistry-specific systems followed: ChemCrow combines 18 expert tools under an LLM planner \cite{r03}, and Coscientist closed the loop from literature to robotic execution \cite{r04}. In biology, BioDiscoveryAgent designs genetic perturbation experiments \cite{r05}, and self-evolving frameworks that maintain a growing tool library have recently been proposed for biomedical research \cite{r06,r07}. These systems share a design pattern - a planner, a set of tools, an evaluator - but differ in how much autonomy the model is given.
+
+Three weaknesses recur across this literature. First, evaluation is usually a single task: a system tuned for chemistry is not shown to plan a CRISPR screen. Second, the evaluator is itself an LLM, so a confident but wrong plan can pass review. Third, reproducibility is rarely demonstrated: the tool outputs behind a claim are usually not preserved. The present work addresses all three by treating the orchestration layer as a first-class engineering artefact: explicit stage contracts, a deterministic audit with veto power, and a provenance log for every external call.
+
+\section{Why four scenarios}
+
+We deliberately chose four tasks that stress different parts of the same orchestration problem (Table 1). Target discovery is evidence integration under uncertainty; enzyme design is structure-constrained combinatorial search with experimental feedback; retrosynthesis is graph search with hard feasibility constraints; protocol compilation is translation from natural language into a typed, checkable program. If one orchestrator handles all four, it is a platform rather than a demo.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{The four scenarios share one orchestrator and differ only in their stage programs and tools.}
+\begin{tabularx}{\textwidth}{l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
+\hline
+Scenario & Input & Core computation & Output & Failure mode exercised \\
+\hline
+S1 Target discovery & anchor gene + disease & 6-dimension evidence scoring over public omics & ranked effectors + dossier & missing capability (no competence scorer) \\
+S2 Enzyme design & enzyme + round-1 data & structure/prior-guided variant scoring & 15-variant library + primers & experimental knowledge that a model lacks \\
+S3 Retrosynthesis & target SMILES & template-based best-first AND-OR search & shortest route to stock & combinatorial explosion / dead ends \\
+S4 Protocol $\rightarrow$ SDL & natural-language protocol & typed compilation + static validation & validated SDL program & silent unit/safety errors \\
+\hline
+\end{tabularx}
+
+\end{table}
+
+\section{Contributions}
+
+\begin{itemize}
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\item A scenario-agnostic, self-evolving multi-agent architecture (manager, developer, critic, tool creator) in which the critic's audit is deterministic Python and has veto power over the language model.
+\item A shared Tool Ocean of 46 tools spanning omics databases, structure analysis, cheminformatics and laboratory automation, with cached, provenance-logged access and a validation gate for generated tools.
+\item Four independently runnable AIDD scenarios, each with a quantitative evaluation that includes a published ground truth (hindcast), a literature benchmark, or deliberately corrupted inputs.
+\item A reproducibility contract: an offline deterministic engine, an OpenAI-compatible engine, and a single command that regenerates every number in this report from cached public data.
+\end{itemize}
+

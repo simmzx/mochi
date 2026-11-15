@@ -1,0 +1,38 @@
+# runtime artefacts
+cache/
+# outputs/ is committed: the four canonical runs are the evidence behind the report
+# tools_created/ is committed: the tool the system wrote at runtime is part of the evidence
+mochi/templates/auto_generated/*.yaml
+!mochi/templates/auto_generated/.gitkeep
+
+# render scratch / backups
+.dsh-office-*/
+*.bak
+
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# env / editor
+.env
+.venv/
+.idea/
+.vscode/
+.DS_Store
+# latex build artefacts
+*.aux
+*.log
+*.toc
+*.lof
+*.lot
+*.out
+*.maf
+*.ist
+*.gls
+*.glg
+*.glo
+paper/latex/main.pdf

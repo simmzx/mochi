@@ -1,0 +1,294 @@
+{
+ "run_id": "20261116_002640_target_discovery_DPEP1",
+ "engine": "openai-compatible",
+ "scenario": "target_discovery",
+ "elapsed_s": 18.9,
+ "template": "downstream_effector_target_discovery",
+ "task": "Discover the unreported downstream effector target of DPEP1 in the disease: identify the signal-transducing membrane protein through which it acts, ranked by multi-dimensional evidence and supported by a wet-lab validation plan.",
+ "task_source": "default",
+ "stages": [
+  {
+   "stage": "stage_1",
+   "name": "Profile construction",
+   "status": "ok",
+   "attempt": 1,
+   "duration_s": 0.0,
+   "findings": [
+    "DPEP1 = P16444, 411 aa; GPI-anchored ectoprotein (no transmembrane helix, no intracellular domain).",
+    "Open Targets CRC association score = 0.053 (colorectal cancer); 213 associated diseases.",
+    "TCGA-COADREAD: mean mRNA z vs normal = 2.535, 451 tumours with z>2 (n=592).",
+    "Alterations: 5 mutated samples, 0.0 amplified, 0.0068 deep-deleted.",
+    "PubMed hits for DPEP1+disease: 32."
+   ]
+  },
+  {
+   "stage": "stage_2",
+   "name": "Candidate generation",
+   "status": "ok",
+   "attempt": 1,
+   "duration_s": 16.7,
+   "findings": [
+    "PPI partners of DPEP1: 60 (STRING+IntAct union, score>=0.4).",
+    "Co-expression panel: 600 KEGG signalling genes; 24 correlated with DPEP1 in TCGA-COADREAD (|r|>=0.3, FDR<=0.1).",
+    "Reactome co-annotation: 8 candidates share at least one pathway with DPEP1.",
+    "Literature co-mentions retrieved for 45 candidates (7 with >=1 co-mention).",
+    "Candidate table: 34 expressed candidates retained for scoring."
+   ]
+  },
+  {
+   "stage": "stage_3",
+   "name": "Signalling competence scoring",
+   "status": "ok",
+   "attempt": 1,
+   "duration_s": 0.0,
+   "findings": [
+    "Scored 34 candidates with score_signaling_potential (0 without UniProt records).",
+    "10 candidates reach the signalling-competence threshold (0.35).",
+    "Top signalling-competent candidates: FZD7=0.85, ZNRF3=0.748, GJA1=0.688."
+   ]
+  },
+  {
+   "stage": "stage_4",
+   "name": "Multi-evidence scoring",
+   "status": "ok",
+   "attempt": 1,
+   "duration_s": 0.1,
+   "findings": [
+    "Scored 10 candidates on 6 dimensions with initial weights {\"association\": 0.24, \"signaling\": 0.2, \"crc_evidence\": 0.2, \"pathway_centrality\": 0.1, \"novelty\": 0.1, \"druggability\": 0.16} (the critic may re-calibrate them).",
+    "Coverage: 10 candidates have >=80% of dimensions populated.",
+    "Consistency: 0 candidates are supported by >=3 dimensions.",
+    "Leader: ASIC1 (composite 0.4958, dimensions {'association': 0.4194, 'signaling': 0.688, 'crc_evidence': 0.4104, 'pathway_centrality': 0.0444, 'novelty': 0.565, 'druggability': 0.716})."
+   ]
+  }
+ ],
+ "critiques": [
+  {
+   "stage": "stage_1",
+   "verdict": "accept",
+   "failed_checks": []
+  },
+  {
+   "stage": "stage_2",
+   "verdict": "accept",
+   "failed_checks": []
+  },
+  {
+   "stage": "stage_3",
+   "verdict": "accept",
+   "failed_checks": [
+    "Scorer validated"
+   ]
+  },
+  {
+   "stage": "stage_4",
+   "verdict": "revise",
+   "failed_checks": [
+    "Top candidate is consistent",
+    "Ranking is not a single-dimension artefact"
+   ]
+  }
+ ],
+ "weights": {
+  "association": 0.24,
+  "signaling": 0.2,
+  "crc_evidence": 0.2,
+  "pathway_centrality": 0.1,
+  "novelty": 0.1,
+  "druggability": 0.16
+ },
+ "ranking": [
+  {
+   "rank": 1,
+   "gene": "ASIC1",
+   "composite": 0.4958,
+   "dimensions": {
+    "association": 0.4194,
+    "signaling": 0.688,
+    "crc_evidence": 0.4104,
+    "pathway_centrality": 0.0444,
+    "novelty": 0.565,
+    "druggability": 0.716
+   },
+   "support": 2
+  },
+  {
+   "rank": 2,
+   "gene": "NOTCH1",
+   "composite": 0.4806,
+   "dimensions": {
+    "association": 0.5075,
+    "signaling": 0.676,
+    "crc_evidence": 0.3641,
+    "pathway_centrality": 0.0,
+    "novelty": 0.029,
+    "druggability": 0.924
+   },
+   "support": 2
+  },
+  {
+   "rank": 3,
+   "gene": "FZD7",
+   "composite": 0.4587,
+   "dimensions": {
+    "association": 0.2291,
+    "signaling": 0.85,
+    "crc_evidence": 0.2291,
+    "pathway_centrality": 0.2348,
+    "novelty": 0.3,
+    "druggability": 0.84
+   },
+   "support": 2
+  },
+  {
+   "rank": 4,
+   "gene": "ZNRF3",
+   "composite": 0.4492,
+   "dimensions": {
+    "association": 0.5005,
+    "signaling": 0.748,
+    "crc_evidence": 0.4931,
+    "pathway_centrality": 0.0,
+    "novelty": 0.409,
+    "druggability": 0.25
+   },
+   "support": 1
+  },
+  {
+   "rank": 5,
+   "gene": "ACE2",
+   "composite": 0.4426,
+   "dimensions": {
+    "association": 0.6125,
+    "signaling": 0.45,
+    "crc_evidence": 0.2041,
+    "pathway_centrality": 0.0222,
+    "novelty": 0.026,
+    "druggability": 1.0
+   },
+   "support": 2
+  },
+  {
+   "rank": 6,
+   "gene": "GJA1",
+   "composite": 0.4416,
+   "dimensions": {
+    "association": 0.4523,
+    "signaling": 0.688,
+    "crc_evidence": 0.1841,
+    "pathway_centrality": 0.0444,
+    "novelty": 0.287,
+    "druggability": 0.784
+   },
+   "support": 2
+  },
+  {
+   "rank": 7,
+   "gene": "ALG10",
+   "composite": 0.4383,
+   "dimensions": {
+    "association": 0.4884,
+    "signaling": 0.45,
+    "crc_evidence": 0.4262,
+    "pathway_centrality": 0.0444,
+    "novelty": 0.902,
+    "druggability": 0.32
+   },
+   "support": 1
+  },
+  {
+   "rank": 8,
+   "gene": "ANPEP",
+   "composite": 0.4313,
+   "dimensions": {
+    "association": 0.466,
+    "signaling": 0.45,
+    "crc_evidence": 0.0838,
+    "pathway_centrality": 0.0222,
+    "novelty": 0.505,
+    "druggability": 1.0
+   },
+   "support": 1
+  },
+  {
+   "rank": 9,
+   "gene": "MEP1A",
+   "composite": 0.3382,
+   "dimensions": {
+    "association": 0.4846,
+    "signaling": 0.45,
+    "crc_evidence": 0.0411,
+    "pathway_centrality": 0.0222,
+    "novelty": 0.779,
+    "druggability": 0.272
+   },
+   "support": 1
+  },
+  {
+   "rank": 10,
+   "gene": "CDHR5",
+   "composite": 0.338,
+   "dimensions": {
+    "association": 0.4908,
+    "signaling": 0.45,
+    "crc_evidence": 0.0459,
+    "pathway_centrality": 0.0222,
+    "novelty": 0.788,
+    "druggability": 0.25
+   },
+   "support": 1
+  }
+ ],
+ "tool_creation": null,
+ "files": {
+  "report": "D:\\deepseek\\workshop\\mochi\\outputs\\20261116_002640_target_discovery_DPEP1\\report.md",
+  "summary": null,
+  "figures": [
+   "fig1_evidence_heatmap.png",
+   "fig2_weighted_ranking.png",
+   "fig3_evidence_radar.png",
+   "fig4_survival.png"
+  ],
+  "run_dir": "D:\\deepseek\\workshop\\mochi\\outputs\\20261116_002640_target_discovery_DPEP1"
+ },
+ "narrative": "The top candidate is prioritised on signalling competence and disease evidence; the decisive test is a reciprocal co-immunoprecipitation followed by epistasis.",
+ "memory": {
+  "templates": {
+   "n_templates": 4,
+   "prebuilt": 4,
+   "auto_generated": 0,
+   "ids": [
+    "downstream_effector_target_discovery",
+    "enzyme_activity_engineering",
+    "multi_step_retrosynthesis",
+    "protocol_to_sdl_compiler"
+   ]
+  },
+  "session_turns": 14,
+  "blackboard_keys": [
+   "plan",
+   "stage_1.critique",
+   "stage_1.result",
+   "stage_2.critique",
+   "stage_2.result",
+   "stage_3.critique",
+   "stage_3.result",
+   "stage_4.critique",
+   "stage_4.result"
+  ],
+  "performance": {
+   "n_tasks": 8,
+   "by_agent": {
+    "dev_agent": {
+     "n": 4,
+     "success_rate": 1.0,
+     "avg_s": 4.2
+    },
+    "critic_agent": {
+     "n": 4,
+     "success_rate": 0.75,
+     "avg_s": 0.0
+    }
+   }
+  }
+ }
+}
